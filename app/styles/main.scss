@@ -1,39 +1,118 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
-
-// RESET
-* {
-  margin: 0;
-  border: 0;
-  padding: 0;
-  outline: 0;
-  text-decoration: none;
-}
+@import 'base';
 
 body {
-  background: #fafafa;
-  font-family: 'Amatic SC', cursive;
+  font-family: 'Raleway', sans-serif;
+  background: $background;
+  // font-family: 'Amatic SC', cursive;
   // font-family: 'Raleway', sans-serif;
-  color: #FFF;
+}
+
+.dots {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url('/images/bg-single-dotted.gif');
+  background-repeat: repeat;
 }
 
 .header {
   display: flex;
-  width: 100vw;
-  height: 100vh;
-  background: #ddd;
-  background-image: url('/images/');
-  .dots {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: url('/images/bg-single-dotted.gif');
-    background-repeat: repeat;
-    width: 100%;
-    height: 100%;
+  // width: calc(100vw - 40px);
+  height: calc(100vh - 40px);
+  background-image: url('/images/cover.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 20px;
+  filter: grayscale(100%);
+  &__title {
+    color: $white;
+    font-size: 10rem;
+    font-family: 'Amatic SC', cursive;
+  }
+  &__sub-title {
+    font-size: 2rem;
+    color: $white;
+    font-weight: 500;
   }
 }
 
-.title {
-  color: #FFF;
-  font-size: 8rem;
+.section {
+  margin: 140px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 120px;
+    flex: 1;
+    .content {
+      &__title {
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        color: $text-secondary;
+      }
+      &__sub-title {
+        margin: 10px 0px 24px;
+        font-size: 42px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 6px;
+      }
+      &__article {
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        line-height: 30px;
+        text-align: center;
+      }
+      &__list {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        line-height: 30px;
+      }
+    }
+    &--history {
+      padding: 40px 25%;
+    }
+    &--ceremony {
+      padding: 40px 5% 40px 15%;
+      border-right: $text-primary 1px solid
+    }
+    &--tips {
+      padding: 40px 15% 40px 5%;
+    }
+  }
+}
+
+.image-interval {
+  background-image: url('/images/cover.jpeg');
+  display: flex;
+  height: 80vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 20px;
+  filter: grayscale(100%);
+  &__dots {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url('/images/bg-single-dotted.gif');
+    background-repeat: repeat;
+  }
 }
