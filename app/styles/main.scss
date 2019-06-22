@@ -1,118 +1,141 @@
-@import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
 @import 'base';
 
 body {
-  font-family: 'Raleway', sans-serif;
-  background: $background;
-  // font-family: 'Amatic SC', cursive;
-  // font-family: 'Raleway', sans-serif;
-}
-
-.dots {
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-image: url('/images/bg-single-dotted.gif');
-  background-repeat: repeat;
+  background: $background;
+  font-family: 'Raleway', sans-serif;
+  color: $text-primary;
+  text-align: center;
+  font-size: 14px;
 }
 
 .header {
-  display: flex;
-  // width: calc(100vw - 40px);
+  background-image: url('/images/cover-header.jpeg');
   height: calc(100vh - 40px);
-  background-image: url('/images/cover.jpeg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 20px;
-  filter: grayscale(100%);
   &__title {
     color: $white;
     font-size: 10rem;
-    font-family: 'Amatic SC', cursive;
   }
   &__sub-title {
-    font-size: 2rem;
     color: $white;
-    font-weight: 500;
+    font-size: 2rem;
   }
 }
 
 .section {
-  margin: 140px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  @include flexbox(row, center, flex-start);
+  margin: 20px;
   &__content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px 120px;
-    flex: 1;
+    @include flexbox;
     .content {
       &__title {
-        font-size: 14px;
-        font-weight: 700;
+        @include fonts($text-secondary, 1em, 700, 4px);
         text-transform: uppercase;
-        letter-spacing: 4px;
-        color: $text-secondary;
       }
       &__sub-title {
-        margin: 10px 0px 24px;
-        font-size: 42px;
-        font-weight: 500;
+        @include fonts($text-primary, 3.45em, 500, 6px);
         text-transform: uppercase;
-        letter-spacing: 6px;
+        margin: 10px 0px 26px;
+        &--light {
+          color: $white !important;
+          letter-spacing: 10px !important;
+        }
       }
       &__article {
-        font-size: 14px;
-        font-weight: 400;
-        letter-spacing: 1px;
+        @include fonts;
         line-height: 30px;
-        text-align: center;
       }
       &__list {
-        text-align: center;
-        font-size: 14px;
-        font-weight: 400;
-        letter-spacing: 1px;
+        @include fonts;
         line-height: 30px;
       }
     }
     &--history {
-      padding: 40px 25%;
+      width: 50%;
+      margin: 120px 0px;
+      padding: 20px 120px;
     }
     &--ceremony {
-      padding: 40px 5% 40px 15%;
-      border-right: $text-primary 1px solid
+      width: 40%;
+      margin: 120px 0px;
+      padding: 20px 80px 20px 15%;
     }
     &--tips {
-      padding: 40px 15% 40px 5%;
+      width: 40%;
+      margin: 120px 0px;
+      padding: 20px 15% 20px 80px;
+      border-left: $text-primary 1px solid;
+    }
+    &--special-guests {
+      width: (280px + (30px * 2)) * 3 !important;
+      padding: 140px 140px;
+    }
+    .special-guests {
+      @include flexbox(row);
+      flex-wrap: wrap;
+      &__guest {
+        @include flexbox(row, flex-start, center);
+        @include size(280px, 50px);
+        margin: 15px;
+        padding: 15px;
+        img {
+          @include size(50px, 50px);
+          background: $text-primary;
+          margin-right: 20px;
+          border-radius: 50%;
+          display: flex;
+        }
+        span {
+          @include fonts($text-primary, 1.4em, 500, 2px);
+          text-transform: uppercase;
+        }
+      }
+    }
+    &--gifts-list {
+      padding: 140px 0px;
     }
   }
 }
 
-.image-interval {
-  background-image: url('/images/cover.jpeg');
-  display: flex;
-  height: 80vh;
+.image {
+  @include flexbox;
+  margin: 20px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin: 20px;
   filter: grayscale(100%);
   &__dots {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-image: url('/images/bg-single-dotted.gif');
-    background-repeat: repeat;
+    @include flexbox;
+    @include size(100%, 100%);
+    background: url('/images/bg-single-dotted.gif');
+  }
+  &--gifts-list {
+    background-image: url('/images/gifts-list.jpeg');
+    filter: grayscale(0%);    
+  }
+  &--interval-1 {
+    background-image: url('/images/parallax-1.jpeg');
+    filter: grayscale(0%);
+    height: 80vh;
+  }
+  &--interval-2 {
+    background-image: url('/images/parallax-2.jpeg');
+    filter: grayscale(0%);
+    height: 60vh;
+  }
+}
+
+.btn-light {
+  @include fonts($text-primary, 1.2em, 600, 2px);
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: $white;
+  border: transparent 2px solid;
+  padding: 20px 40px;
+  margin-top: 40px;
+  &:hover {
+    color: $white;
+    border: $white 2px solid;
+    background-color: transparent;
   }
 }
