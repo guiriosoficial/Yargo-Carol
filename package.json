@@ -1,4 +1,9 @@
 {
+  "name": "yargo-e-carol",
+  "description": "Site de Casamento de Yargo Tolentino e Carol Rios",
+  "author": {
+    "name": "Guilherme 'riwersxd' Rios"
+  },
   "private": true,
   "engines": {
     "node": ">=4"
