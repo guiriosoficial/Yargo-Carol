@@ -133,9 +133,26 @@ body {
   border: transparent 2px solid;
   padding: 20px 40px;
   margin-top: 40px;
+  transition: all .6s ease-out;
   &:hover {
     color: $white;
     border: $white 2px solid;
+    background-color: transparent;
+  }
+}
+
+.btn-dark {
+  @include fonts($white, 1.2em, 600, 2px);
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: $text-primary;
+  border: transparent 2px solid;
+  padding: 20px 40px;
+  margin-top: 40px;
+  transition: all .6s ease-out;
+  &:hover {
+    color: $text-primary;
+    border: $text-primary 2px solid;
     background-color: transparent;
   }
 }
