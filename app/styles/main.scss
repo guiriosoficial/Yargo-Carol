@@ -10,8 +10,6 @@ body {
 }
 
 .header {
-  background-image: url('/images/cover-header.jpeg');
-  height: calc(100vh - 40px);
   &__title {
     color: $white;
     font-size: 10rem;
@@ -134,6 +132,7 @@ body {
 .image {
   @include flexbox;
   margin: 20px;
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -142,6 +141,10 @@ body {
     @include flexbox;
     @include size(100%, 100%);
     background: url('/images/bg-single-dotted.gif');
+  }
+  &--header {
+    background-image: url('/images/cover-header.jpeg');
+    height: calc(100vh - 40px);
   }
   &--gifts-list {
     background-image: url('/images/gifts-list.jpeg');
