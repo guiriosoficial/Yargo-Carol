@@ -1,5 +1,4 @@
 @import 'base';
-
 body {
   width: 100%;
   background: $background;
@@ -8,7 +7,6 @@ body {
   text-align: center;
   font-size: 14px;
 }
-
 .header {
   &__title {
     color: $white;
@@ -19,7 +17,6 @@ body {
     font-size: 2rem;
   }
 }
-
 .section {
   @include flexbox(row, center, flex-start);
   margin: 20px;
@@ -128,12 +125,11 @@ body {
     }
   }
 }
-
 .image {
   @include flexbox;
   margin: 20px;
   background-attachment: fixed;
-  background-position: center;
+  background-position: center 0%;
   background-repeat: no-repeat;
   background-size: cover;
   filter: grayscale(100%);
@@ -161,7 +157,6 @@ body {
     height: 60vh;
   }
 }
-
 .btn-light {
   @include fonts($text-primary, 1.2em, 600, 2px);
   text-transform: uppercase;
@@ -177,7 +172,6 @@ body {
     background-color: transparent;
   }
 }
-
 .btn-dark {
   @include fonts($white, 1.2em, 400, 2px);
   text-transform: uppercase;
@@ -193,7 +187,6 @@ body {
     background-color: transparent;
   }
 }
-
 .footer {
   background: $text-primary;
   color: $white;
