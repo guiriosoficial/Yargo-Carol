@@ -133,7 +133,7 @@ body {
   @include flexbox;
   margin: 20px;
   background-attachment: fixed;
-  background-position: center;
+  background-position: center 0%;
   background-repeat: no-repeat;
   background-size: cover;
   filter: grayscale(100%);
