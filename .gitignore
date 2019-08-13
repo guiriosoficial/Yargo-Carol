@@ -1,5 +1,6 @@
 # dependencies
 node_modules
+bower_components
 
 # compiled output
 /dist
@@ -8,6 +9,3 @@ node_modules
 # System Files
 .DS_Store
 Thumbs.db
-
-# Illustrator
-/app/images/favicon/favicon.ai
