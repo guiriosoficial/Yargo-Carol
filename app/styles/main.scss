@@ -129,6 +129,11 @@ body {
   }
 }
 
+.flyin {
+  opacity: 0;
+  transition: all 1s ease-out;
+}
+
 .image {
   @include flexbox;
   margin: 20px;

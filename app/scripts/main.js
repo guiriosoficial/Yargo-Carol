@@ -1,10 +1,17 @@
 $(document).ready(function(){
-	$('.image').each(function(){
-	  var $obj = $(this);
-	  $(window).scroll(function() {
-		var yPos = - ( $(window).scrollTop() / 3 ); 
-		var bgpos = '50% '+ yPos + 'px';
-		$obj.css('background-position', bgpos );
+	$(window).scroll(function() {
+		$('.image').each(function(){
+		var yPos = - ( $(window).scrollTop() / 3 );
+		var bgPos = '50% '+ yPos + 'px';
+		$(this).css('background-position', bgPos );
 		});
-	}); 
+
+		$('.flyin').each(function(i){
+			var objBottom = $(this).offset().top + $(this).outerHeight();
+			var windowBottom = $(window).scrollTop() + $(window).height();
+			if(windowBottom > objBottom){
+				$(this).animate({'opacity':'1'});
+			}
+		});
+	});
 });
