@@ -7,10 +7,11 @@ $(document).ready(function(){
 		});
 
 		$('.flyin').each(function(i){
+			var objHeight = $(this).height() / 2
 			var objBottom = $(this).offset().top + $(this).outerHeight();
 			var windowBottom = $(window).scrollTop() + $(window).height();
-			if(windowBottom > objBottom){
-				$(this).animate({'opacity':'1'});
+			if(windowBottom > (objBottom - objHeight)){
+				$(this).animate({ opacity: '1' });
 			}
 		});
 	});
