@@ -12,7 +12,10 @@ body {
 .header {
   &__title {
     color: $white;
-    font-size: 10rem;
+    font-size: 5rem;
+    span {
+      font-size: 6rem;
+    }
   }
   &__sub-title {
     color: $white;
@@ -158,12 +161,12 @@ body {
   &--interval-1 {
     background-image: url('/images/parallax-1.jpeg');
     filter: grayscale(0%);
-    height: 80vh;
+    height: calc(100vh - 40px);
   }
   &--interval-2 {
     background-image: url('/images/parallax-2.jpeg');
     filter: grayscale(0%);
-    height: 60vh;
+    height: calc(80vh - 40px);
   }
 }
 
