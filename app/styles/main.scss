@@ -129,6 +129,12 @@ body {
             border: $text-primary 1px solid;
           }
         }
+        span {
+          @include fonts(darkred);
+          font-family: 'Raleway', sans-serif;
+          text-align: center;
+          width: 340px;
+        }
       }
     }
   }
