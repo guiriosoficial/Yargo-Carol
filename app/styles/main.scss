@@ -58,14 +58,14 @@ body {
       padding: 20px 120px;
     }
     &--ceremony {
-      width: 40%;
+      width: 50%;
       margin: 120px 0px;
-      padding: 20px 80px 20px 15%;
+      padding: 20px 80px 20px 10%;
     }
     &--tips {
-      width: 40%;
+      width: 50%;
       margin: 120px 0px;
-      padding: 20px 15% 20px 80px;
+      padding: 20px 10% 20px 80px;
       border-left: $text-primary 1px solid;
     }
     &--special-guests {
@@ -77,25 +77,27 @@ body {
       flex-wrap: wrap;
       &__guest {
         @include flexbox(row, flex-start, center);
-        @include size(280px, 50px);
+        @include size(260px, 60px);
         margin: 15px;
         padding: 15px;
         img {
-          @include size(50px, 50px);
+          @include size(60px, 60px);
           background: $text-primary;
           margin-right: 20px;
           border-radius: 50%;
           display: flex;
+          min-width: 60px;
+          min-height: 60px;
         }
         span {
           @include fonts($text-primary, 1.4em, 500, 2px);
           text-transform: uppercase;
+          text-align: left;
         }
       }
     }
-    &--gifts-list {
-      padding: 140px 0px;
-    }
+    // &--gifts-list {
+    // }
     &--confirmation-form {
       width: 50%;
       margin: 120px 0px;
@@ -109,7 +111,7 @@ body {
           margin-top: 60px
         }
         label {
-          width: 100px;
+          width: 120px;
           display: flex;
           justify-content: flex-end;
           margin-right: 16px;
@@ -156,7 +158,8 @@ body {
   }
   &--gifts-list {
     background-image: url('/images/gifts-list.jpeg');
-    filter: grayscale(0%);    
+    height: calc(80vh - 40px);
+    filter: grayscale(0%);
   }
   &--interval-1 {
     background-image: url('/images/parallax-1.jpeg');
