@@ -89,8 +89,8 @@ body {
           min-width: 60px;
           min-height: 60px;
         }
-        span {
-          @include fonts($text-primary, 1.4em, 500, 2px);
+        h4 {
+          @include fonts($text-primary, 1.4rem, 500, 2px);
           text-transform: uppercase;
           text-align: left;
         }
