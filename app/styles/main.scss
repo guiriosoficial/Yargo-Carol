@@ -214,16 +214,14 @@ body {
 .footer {
   @include fonts($white);
   background: $text-primary;
-  padding: 0 30px;
+  padding: 0 20px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  div {
-    a:link {
-      @include fonts($white);
-      text-decoration: underline;
-    }
-
+  a {
+    @include fonts($white);
+    text-decoration: underline;
   }
+
 }
