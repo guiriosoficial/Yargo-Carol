@@ -212,7 +212,18 @@ body {
 }
 
 .footer {
+  @include fonts($white);
   background: $text-primary;
-  color: $white;
+  padding: 0 30px;
   height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  div {
+    a:link {
+      @include fonts($white);
+      text-decoration: underline;
+    }
+
+  }
 }
