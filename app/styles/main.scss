@@ -193,6 +193,15 @@ body {
     border: $white 2px solid;
     background-color: transparent;
   }
+  &--provisional-text {
+    @include fonts($text-primary, 1em, 600);
+    max-width: 60%;
+    &:hover {
+      color: $text-primary;  
+      background-color: $white;
+      border: transparent 2px solid;
+    }
+  }
 }
 
 .btn-dark {
