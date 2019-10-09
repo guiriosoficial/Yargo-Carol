@@ -193,15 +193,6 @@ body {
     border: $white 2px solid;
     background-color: transparent;
   }
-  &--provisional-text {
-    @include fonts($text-primary, 1em, 600);
-    max-width: 60%;
-    &:hover {
-      color: $text-primary;  
-      background-color: $white;
-      border: transparent 2px solid;
-    }
-  }
 }
 
 .btn-dark {
@@ -217,6 +208,47 @@ body {
     color: $text-primary;
     border: $text-primary 1px solid;
     background-color: transparent;
+  }
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  opacity:0;
+  background: rgba(0,0,0,0.6);
+  transition: opacity .5s ease-out;
+  pointer-events: none;
+  &:target {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  & > span {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 32px 40px;
+    width: 50%;
+    text-align: left;
+    background: $white;
+    p {
+      margin-top: 16px;
+    }
+  }
+  &__close {
+    position: absolute; 
+    right: 40px;
+    top: 32px;
+    width: 30px;
+    font-size: 16px;
+    text-align: right;
+    color: $text-primary;
   }
 }
 
