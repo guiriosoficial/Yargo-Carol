@@ -17,6 +17,8 @@ body {
   }
 }
 
+
+
 .section {
   @include flexbox(row, center, flex-start);
   margin: 20px;
@@ -60,7 +62,7 @@ body {
       width: 50%;
       margin: 120px 0px;
       padding: 20px 10% 20px 80px;
-      border-left: $--text-primary 1px solid;
+      border-left: $--color-primary 1px solid;
     }
     &--special-guests {
       width: (280px + (30px * 2)) * 3 !important;
@@ -76,7 +78,7 @@ body {
         padding: 15px;
         img {
           @include size(60px, 60px);
-          background: $--text-primary;
+          background: $--color-primary;
           margin-right: 20px;
           border-radius: 50%;
           display: flex;
@@ -115,12 +117,12 @@ body {
         }
         input, textarea {
           font-family: 'Raleway', sans-serif;
-          border: $--text-secondary 1px solid;
+          border: $--color-secondary 1px solid;
           padding: 14px;
           width: 340px;
           transition: all .5s ease-out;
           &:hover, &:focus {
-            border: $--text-primary 1px solid;
+            border: $--color-primary 1px solid;
           }
         }
         span {
@@ -193,14 +195,14 @@ body {
   @include fonts($--white, 1.2em, 400, 2px);
   text-transform: uppercase;
   text-decoration: none;
-  background-color: $--text-primary;
+  background-color: $--color-primary;
   border: transparent 1px solid;
   padding: 20px 40px;
   cursor: pointer;
   @include transition;
   &:hover {
     color: $--text-primary;
-    border: $--text-primary 1px solid;
+    border: $--color-primary 1px solid;
     background-color: transparent;
   }
 }
@@ -228,7 +230,7 @@ body {
     background: $--white;
   }
   &__content-box {
-    border: solid $--text-primary 2px;
+    border: solid $--color-primary 2px;
     padding: 24px;
   }
   .close {
@@ -240,7 +242,7 @@ body {
 .footer {
   @include flexbox(row, space-between, center);
   @include fonts($--white);
-  background: $--text-primary;
+  background: $--color-primary;
   padding: 0 20px;
   height: 40px;
   a {

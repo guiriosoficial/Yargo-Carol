@@ -7,6 +7,8 @@ $--black: #000 !default;
 $--background: #FAFAFA !default;
 $--text-primary: #424242 !default;
 $--text-secondary: #AAAAAA !default;
+$--color-primary: #424242 !default;
+$--color-secondary: #AAAAAA !default;
 
 // MIXINS
 @mixin flexbox($di: column, $jc: center, $ai: center) {
@@ -49,10 +51,10 @@ $--text-secondary: #AAAAAA !default;
     box-shadow: none;
     box-sizing: border-box;
     text-decoration: none;
-  }
+}
 
-  html {
-    font-size: 14px;
-    text-align: center;
-    font-family: 'Raleway', sans-serif;
-  }
+html {
+font-size: 14px;
+text-align: center;
+font-family: 'Raleway', sans-serif;
+}
