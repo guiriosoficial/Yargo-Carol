@@ -117,9 +117,9 @@ body {
           margin-right: 16px;
           padding: 16px 0px;
           text-align: right;
+          line-height: 14px;
         }
         input, textarea {
-          @include fonts;
           font-family: 'Raleway', sans-serif;
           border: $text-secondary 1px solid;
           padding: 14px;
@@ -135,6 +135,10 @@ body {
           text-align: center;
           width: 340px;
         }
+      }
+      &__contacts {
+        @include fonts($text-primary, 1.2rem, 400, 0px);
+        margin-top: 80px;
       }
     }
   }
@@ -212,6 +216,7 @@ body {
 }
 
 .modal {
+  @include fonts;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -233,19 +238,23 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    padding: 32px 40px;
+    padding: 32px;
     width: 50%;
-    text-align: left;
     background: $white;
+    & > div {
+      border: solid $text-primary 2px;
+      text-align: left;
+      padding: 24px;
+    }
     p {
       margin-top: 16px;
     }
   }
   &__close {
     position: absolute; 
-    right: 40px;
-    top: 32px;
-    width: 30px;
+    right: 56px;
+    top: 56px;
+    width: 16px;
     font-size: 16px;
     text-align: right;
     color: $text-primary;
