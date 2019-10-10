@@ -22,32 +22,33 @@ body {
 .section {
   @include flexbox(row, center, flex-start);
   margin: 20px;
-  &__content {
-    @include flexbox;
-    .content {
-      &__title {
-        @include fonts($--text-secondary, 1em, 700, 2px);
-        text-transform: uppercase;
-        line-height: 30px;
-      }
-      &__sub-title {
-        @include fonts($--text-primary, 3.45em, 500, 6px);
-        text-transform: uppercase;
-        margin: 10px 0px 26px;
-        &--light {
-          color: $--white !important;
-          letter-spacing: 10px !important;
-        }
-      }
-      &__article {
-        @include fonts;
-        line-height: 30px;
-      }
-      &__list {
-        @include fonts;
-        line-height: 30px;
-      }
+  &__title {
+    @include fonts($--text-secondary, 1em, 700, 2px);
+    text-transform: uppercase;
+    line-height: 30px;
+  }
+  &__sub-title {
+    @include fonts($--text-primary, 3.45em, 500, 6px);
+    text-transform: uppercase;
+    line-height: 56px;
+    margin: 14px 0px 26px;
+    &--light {
+      color: $--white !important;
+      letter-spacing: 10px !important;
     }
+  }
+  &__article {
+    @include fonts;
+    line-height: 30px;
+  }
+  &__list {
+    @include fonts;
+    line-height: 30px;
+  }
+
+  
+  &-content {
+    @include flexbox;
     &--history {
       width: 50%;
       margin: 120px 0px;
@@ -157,11 +158,11 @@ body {
     filter: grayscale(100%);
   } 
   &--history-ceremony {
-    background-image: url('/images/parallax-1.jpeg');
+    background-image: url('/images/history-ceremony.jpeg');
     height: calc(100vh - 40px);
   }
   &--ceremony-guests {
-    background-image: url('/images/parallax-2.jpeg');
+    background-image: url('/images/ceremony-guests.jpeg');
     height: calc(80vh - 40px);
   }
   &--gifts-list {
