@@ -41,13 +41,9 @@ body {
     @include fonts;
     line-height: 30px;
   }
-  &__list {
-    @include fonts;
-    line-height: 30px;
-  }
 
-  
-  &-content {
+
+  &__content {
     @include flexbox;
     &--history {
       width: 50%;
@@ -66,7 +62,7 @@ body {
       border-left: $--color-primary 1px solid;
     }
     &--special-guests {
-      width: (280px + (30px * 2)) * 3 !important;
+      width: (340px + (30px * 2)) * 3 !important;
       padding: 140px 140px;
     }
     .special-guests {
