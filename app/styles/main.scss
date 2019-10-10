@@ -2,24 +2,18 @@
 
 body {
   width: 100%;
-  background: $background;
-  font-family: 'Raleway', sans-serif;
-  color: $text-primary;
-  text-align: center;
-  font-size: 14px;
+  background: $--background;
 }
 
 .header {
   &__title {
-    color: $white;
-    font-size: 5rem;
-    span {
+    @include fonts($--white, 5rem, 700, 2px);
+    > span {
       font-size: 6rem;
     }
   }
   &__sub-title {
-    color: $white;
-    font-size: 2rem;
+    @include fonts($--white, 2rem, 400, 1px);    
   }
 }
 
@@ -30,16 +24,16 @@ body {
     @include flexbox;
     .content {
       &__title {
-        @include fonts($text-secondary, 1em, 700, 2px);
+        @include fonts($--text-secondary, 1em, 700, 2px);
         text-transform: uppercase;
         line-height: 30px;
       }
       &__sub-title {
-        @include fonts($text-primary, 3.45em, 500, 6px);
+        @include fonts($--text-primary, 3.45em, 500, 6px);
         text-transform: uppercase;
         margin: 10px 0px 26px;
         &--light {
-          color: $white !important;
+          color: $--white !important;
           letter-spacing: 10px !important;
         }
       }
@@ -66,7 +60,7 @@ body {
       width: 50%;
       margin: 120px 0px;
       padding: 20px 10% 20px 80px;
-      border-left: $text-primary 1px solid;
+      border-left: $--text-primary 1px solid;
     }
     &--special-guests {
       width: (280px + (30px * 2)) * 3 !important;
@@ -82,7 +76,7 @@ body {
         padding: 15px;
         img {
           @include size(60px, 60px);
-          background: $text-primary;
+          background: $--text-primary;
           margin-right: 20px;
           border-radius: 50%;
           display: flex;
@@ -90,7 +84,7 @@ body {
           min-height: 60px;
         }
         h4 {
-          @include fonts($text-primary, 1.4rem, 500, 2px);
+          @include fonts($--text-primary, 1.4rem, 500, 2px);
           text-transform: uppercase;
           text-align: left;
         }
@@ -121,12 +115,12 @@ body {
         }
         input, textarea {
           font-family: 'Raleway', sans-serif;
-          border: $text-secondary 1px solid;
+          border: $--text-secondary 1px solid;
           padding: 14px;
           width: 340px;
           transition: all .5s ease-out;
           &:hover, &:focus {
-            border: $text-primary 1px solid;
+            border: $--text-primary 1px solid;
           }
         }
         span {
@@ -137,7 +131,7 @@ body {
         }
       }
       &__contacts {
-        @include fonts($text-primary, 1.2rem, 400, 0px);
+        @include fonts($--text-primary, 1.2rem, 400, 0px);
         margin-top: 80px;
       }
     }
@@ -146,132 +140,111 @@ body {
 
 .flyin {
   opacity: 0;
-  transition: all 1s ease-out;
+  @include transition(1s);
 }
 
-.image {
-  @include flexbox;
+.parallax {
   margin: 20px;
   background-attachment: fixed;
-  background-position: center 0%;
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
-  filter: grayscale(100%);
+  &--header {
+    background-image: url('/images/cover-header.jpeg');
+    height: calc(100vh - 40px);
+    filter: grayscale(100%);
+  } 
+  &--history-ceremony {
+    background-image: url('/images/parallax-1.jpeg');
+    height: calc(100vh - 40px);
+  }
+  &--ceremony-guests {
+    background-image: url('/images/parallax-2.jpeg');
+    height: calc(80vh - 40px);
+  }
+  &--gifts-list {
+    background-image: url('/images/gifts-list.jpeg');
+    height: calc(80vh - 40px);
+  }
   &__dots {
     @include flexbox;
     @include size(100%, 100%);
     background: url('/images/bg-single-dotted.gif');
   }
-  &--header {
-    background-image: url('/images/cover-header.jpeg');
-    height: calc(100vh - 40px);
-  }
-  &--gifts-list {
-    background-image: url('/images/gifts-list.jpeg');
-    height: calc(80vh - 40px);
-    filter: grayscale(0%);
-  }
-  &--interval-1 {
-    background-image: url('/images/parallax-1.jpeg');
-    filter: grayscale(0%);
-    height: calc(100vh - 40px);
-  }
-  &--interval-2 {
-    background-image: url('/images/parallax-2.jpeg');
-    filter: grayscale(0%);
-    height: calc(80vh - 40px);
-  }
 }
 
 .btn-light {
-  @include fonts($text-primary, 1.2em, 600, 2px);
+  @include fonts($--text-primary, 1.2em, 600, 2px);
   text-transform: uppercase;
   text-decoration: none;
-  background-color: $white;
+  background-color: $--white;
   border: transparent 2px solid;
   padding: 20px 40px;
   margin-top: 40px;
-  transition: all .5s ease-out;
+  @include transition;
   &:hover {
-    color: $white;
-    border: $white 2px solid;
+    color: $--white;
+    border: $--white 2px solid;
     background-color: transparent;
   }
 }
 
 .btn-dark {
-  @include fonts($white, 1.2em, 400, 2px);
+  @include fonts($--white, 1.2em, 400, 2px);
   text-transform: uppercase;
   text-decoration: none;
-  background-color: $text-primary;
+  background-color: $--text-primary;
   border: transparent 1px solid;
   padding: 20px 40px;
-  transition: all .5s ease-out;
+  cursor: pointer;
+  @include transition;
   &:hover {
-    cursor: pointer;
-    color: $text-primary;
-    border: $text-primary 1px solid;
+    color: $--text-primary;
+    border: $--text-primary 1px solid;
     background-color: transparent;
   }
 }
 
-.modal {
+.modal-container {
+  @include transition(.5s);
+  @include flexbox(row, center, center);
+  @include position(fixed);
   @include fonts;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   z-index: 99;
   opacity:0;
-  background: rgba(0,0,0,0.6);
-  transition: opacity .5s ease-out;
+  backdrop-filter: blur(16px);
+  background-color: rgba(0,0,0,0.8);
   pointer-events: none;
   &:target {
     opacity: 1;
     pointer-events: auto;
   }
-  & > span {
-    display: flex;
-    flex-direction: column;
-    position: relative;
+  &__modal-box {
+    @include flexbox(column, center, center);
+    @include position;
     padding: 32px;
     width: 50%;
-    background: $white;
-    & > div {
-      border: solid $text-primary 2px;
-      text-align: left;
-      padding: 24px;
-    }
-    p {
-      margin-top: 16px;
-    }
+    text-align: left;
+    background: $--white;
   }
-  &__close {
-    position: absolute; 
-    right: 56px;
-    top: 56px;
-    width: 16px;
-    font-size: 16px;
-    text-align: right;
-    color: $text-primary;
+  &__content-box {
+    border: solid $--text-primary 2px;
+    padding: 24px;
+  }
+  .close {
+    @include fonts($--text-secondary, 1.2em, 400, 0px);
+    @include position(absolute, 56px, 56px, '', '');
   }
 }
 
 .footer {
-  @include fonts($white);
-  background: $text-primary;
+  @include flexbox(row, space-between, center);
+  @include fonts($--white);
+  background: $--text-primary;
   padding: 0 20px;
   height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   a {
-    @include fonts($white);
+    @include fonts($--white);
     text-decoration: underline;
   }
-
 }

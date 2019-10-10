@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$(window).scroll(function() {
-		$('.image').each(function(){
+		$('.parallax').each(function(){
 		var yPos = - ( $(window).scrollTop() / 3 );
 		var bgPos = '50% '+ yPos + 'px';
 		$(this).css('background-position', bgPos );
