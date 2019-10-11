@@ -25,11 +25,6 @@ $--color-secondary: #AAAAAA !default;
     letter-spacing: $spacing;
 }
 
-@mixin size($width, $height) {
-    width: $width;
-    height: $height;
-}
-
 @mixin transition($time: .5s) {
     transition: all $time ease-out;
 }
