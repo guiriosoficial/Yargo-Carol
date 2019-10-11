@@ -20,7 +20,8 @@ body {
 
 
 .section {
-  @include flexbox(row, center, flex-start);
+  @include flexbox;
+  min-height: 80vh;
   margin: 20px;
   &__title {
     @include fonts($--text-secondary, 1em, 700, 2px);
@@ -31,7 +32,6 @@ body {
     @include fonts($--text-primary, 3.45em, 500, 6px);
     text-transform: uppercase;
     line-height: 56px;
-    margin: 14px 0px 26px;
     &--light {
       color: $--white !important;
       letter-spacing: 10px !important;
@@ -40,106 +40,46 @@ body {
   &__article {
     @include fonts;
     line-height: 30px;
+    margin-top: 26px;
   }
-
-
   &__content {
     @include flexbox;
+    &--more-articles {
+      @include flexbox(row !important, center !important, flex-start !important);
+      max-width: 100%;
+    }
     &--history {
-      width: 50%;
-      margin: 120px 0px;
-      padding: 20px 120px;
+      width: 660px;
+      max-width: 90%;
+      margin: 160px 0px;
     }
     &--ceremony {
-      width: 50%;
-      margin: 120px 0px;
-      padding: 20px 80px 20px 10%;
+      width: 600px;
+      max-width: 100%;
+      margin: 160px 0px;
+      padding: 0 80px;
     }
     &--tips {
-      width: 50%;
-      margin: 120px 0px;
-      padding: 20px 10% 20px 80px;
+      width: 600px;
+      max-width: 100%;
+      margin: 160px 0px;
+      padding: 0 80px;
       border-left: $--color-primary 1px solid;
     }
     &--special-guests {
-      width: (340px + (30px * 2)) * 3 !important;
-      padding: 140px 140px;
+      width: ((60px + 20px) + 180px + (30px * 2)) * 3 !important;
+      max-width: 100%;
+      margin: 160px 0px;
     }
-    .special-guests {
-      @include flexbox(row);
-      flex-wrap: wrap;
-      &__guest {
-        @include flexbox(row, flex-start, center);
-        @include size(260px, 60px);
-        margin: 15px;
-        padding: 15px;
-        img {
-          @include size(60px, 60px);
-          background: $--color-primary;
-          margin-right: 20px;
-          border-radius: 50%;
-          display: flex;
-          min-width: 60px;
-          min-height: 60px;
-        }
-        h4 {
-          @include fonts($--text-primary, 1.4rem, 500, 2px);
-          text-transform: uppercase;
-          text-align: left;
-        }
-      }
+    &--gifts-list {
+      padding: 160px 40px;
     }
-    // &--gifts-list {
-    // }
     &--confirmation-form {
-      width: 50%;
-      margin: 120px 0px;
-      padding: 20px 120px;
-    }
-    .confirmation-form {
-      &__field {
-        @include flexbox(row, flex-start, flex-start);
-        margin-top: 20px;
-        &:first-child {
-          margin-top: 60px
-        }
-        label {
-          width: 120px;
-          display: flex;
-          justify-content: flex-end;
-          margin-right: 16px;
-          padding: 16px 0px;
-          text-align: right;
-          line-height: 14px;
-        }
-        input, textarea {
-          font-family: 'Raleway', sans-serif;
-          border: $--color-secondary 1px solid;
-          padding: 14px;
-          width: 340px;
-          transition: all .5s ease-out;
-          &:hover, &:focus {
-            border: $--color-primary 1px solid;
-          }
-        }
-        span {
-          @include fonts(darkred);
-          font-family: 'Raleway', sans-serif;
-          text-align: center;
-          width: 340px;
-        }
-      }
-      &__contacts {
-        @include fonts($--text-primary, 1.2rem, 400, 0px);
-        margin-top: 80px;
-      }
+      width: 800px;
+      max-width: 90%;
+      margin: 160px 0px;
     }
   }
-}
-
-.flyin {
-  opacity: 0;
-  @include transition(1s);
 }
 
 .parallax {
@@ -159,16 +99,76 @@ body {
   }
   &--ceremony-guests {
     background-image: url('/images/ceremony-guests.jpeg');
-    height: calc(80vh - 40px);
+    height: calc(60vh - 40px);
   }
   &--gifts-list {
     background-image: url('/images/gifts-list.jpeg');
-    height: calc(80vh - 40px);
   }
   &__dots {
     @include flexbox;
     @include size(100%, 100%);
     background: url('/images/bg-single-dotted.gif');
+  }
+}
+
+.special-guests {
+  @include flexbox(row);
+  flex-wrap: wrap;
+  & > div {
+    @include flexbox(row, flex-start, center);
+    @include size(260px, 60px);
+    margin: 30px;
+    img {
+      @include size(60px, 60px);
+      background: $--color-primary;
+      margin-right: 20px;
+      border-radius: 50%;
+      min-width: 60px;
+      min-height: 60px;
+      max-width: 60px;
+      max-height: 60px;
+    }
+    h4 {
+      @include fonts($--text-primary, 1.4rem, 500, 2px);
+      text-transform: uppercase;
+      text-align: left;
+    }
+  }
+}
+
+form {
+  & > div {
+    @include flexbox(row, flex-start, flex-start);
+    margin-top: 20px;
+    label {
+      width: 126px;
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 16px;
+      padding: 16px 0px;
+      text-align: right;
+      line-height: 14px;
+    }
+    input, textarea {
+      font-family: 'Raleway', sans-serif;
+      border: $--color-secondary 1px solid;
+      padding: 14px;
+      width: 340px;
+      @include transition;
+      &:hover, &:focus {
+        border: $--color-primary 1px solid;
+      }
+    }
+    span {
+      @include fonts(darkred);
+      text-align: center;
+      line-height: 18px;
+      width: 340px;
+    }
+  }
+  & > h4 {
+    @include fonts($--text-primary, 1.2rem, 400, 1px);
+    margin-top: 60px;
   }
 }
 
@@ -179,7 +179,7 @@ body {
   background-color: $--white;
   border: transparent 2px solid;
   padding: 20px 40px;
-  margin-top: 40px;
+  margin-top: 60px;
   @include transition;
   &:hover {
     color: $--white;
@@ -234,6 +234,11 @@ body {
     @include fonts($--text-secondary, 1.2em, 400, 0px);
     @include position(absolute, 56px, 56px, '', '');
   }
+}
+
+.flyin {
+  opacity: 0;
+  @include transition(1s);
 }
 
 .footer {

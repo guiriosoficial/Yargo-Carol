@@ -1,6 +1,10 @@
 {
   "name": "yargo-carol",
-  "author": "Guilherme Rios da Cunha <guilherme.rc.98@gmail.com> (https://riwersxd.github.io)",
+  "author": {
+    "name": "Guilherme Rios da Cunha",
+    "email": "guilherme.rc.98@gmail.com",
+    "url": "https://riwersxd.github.io"
+  },
   "bugs": "https://github.com/riwersxd/Yargo-Carol/issues",
   "homepage": "http://yargoecarol.com.br",
   "version": "1.0.0",
@@ -12,10 +16,12 @@
     "website",
     "template",
     "parallax"
-
   ],
   "description": "A basic and retro wedding website template with parallax effect (for Yargo Tolentino and Carolina Rios)",
-  "repository": "github:riwersxd/Yargo-Carol",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/riwersxd/Yargo-Carol.git"
+  },
   "main": "app/index.html",
   "private": true,
   "scripts": {
