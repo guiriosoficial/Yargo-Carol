@@ -1,23 +1,39 @@
 $(document).ready(function () {
-	$(window).scroll(function () {
-		var yPos = $(this).scrollTop();
-		$('.parallax').each(function(){
-			if ( $(this).is(':first-child') ) { 
-				var bgPos = ( yPos - $(this).position().top ) / 3; 
-			}
-			else { 
-				var bgPos = ( yPos - $(this).position().top + $(this).height() )  / 3;
-			}
-			$(this).css('background-position', '50% -' + bgPos + 'px' );
-		});
 
-		$('.flyin').each(function () {
-			let objHeight = $(this).height() / 1.6
-			let objBottom = $(this).offset().top + $(this).outerHeight();
-			let windowBottom = $(window).scrollTop() + $(window).height();
-			if(windowBottom > (objBottom - objHeight)){
-				$(this).animate({ opacity: '1' }, 2500);
-			}
-		});
-	});
-});
+  // Verification if the object is in viewport
+  function isInViewport(node) {
+    var rect = node.getBoundingClientRect()
+    return (
+      (rect.height > 0 || rect.width > 0) &&
+      rect.bottom >= 0 &&
+      rect.right >= 0 &&
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.left <= (window.innerWidth || document.documentElement.clientWidth)
+    )
+  }
+
+  // The Parallax
+  $(window).scroll(function () {
+    var scroll = $(this).scrollTop()
+    $('.parallax').each(function () {
+      let objPos = $(this).offset().top
+      let objHeight = $(this).height()
+      if (isInViewport(this)) {
+        let ratio = Math.round(((scroll - objPos) / objHeight) * 100)
+        $(this).css('background-position', 'center ' + parseInt(-(ratio * 1.5)) + 'px')
+      }
+    });
+
+    // The Fly-Ins
+    $('.flyin').each(function () {
+      let windowHeight = $(window).height()
+      let objHeight = $(this).height()
+      let objBottom = $(this).offset().top + $(this).outerHeight()
+      let windowBottom = scroll + windowHeight
+      let diff = objBottom - (objHeight / 1.6)
+      if (windowBottom > diff) {
+        $(this).animate({ opacity: '1' }, 2500)
+      }
+    })
+  })
+})
