@@ -172,18 +172,18 @@
           <span class="section__title section__title--sub" style="margin-top: 10px;">
             Sua participação é essencial para tornar esse dia ainda mais lindo! Confirme sua presença e venha celebrar conosco a união de dois corações &lsaquo;3
           </span>
-          <form class="confirmation-form section__article" action="">
+          <form name="presence-confirmation" class="confirmation-form section__article" method="POST" action="#success" data-netlify="true">
             <div class="confirmation-form__field">
               <label for="name">Nome Completo:</label>
-              <input type="text" id="name">
+              <input type="text" id="name" required>
             </div>
             <div class="confirmation-form__field">
               <label for="email">E-mail:</label>
-              <input type="text" id="email">
+              <input type="email" id="email" required>
             </div>
             <div class="confirmation-form__field">
               <label for="phone">Telefone:</label>
-              <input type="text" id="phone">
+              <input type="text" id="phone" required>
             </div>
             <div class="confirmation-form__field">
               <label for="message">Deixe-nos uma mensagem!</label>
@@ -191,7 +191,7 @@
             </div>
             <div class="confirmation-form__field">
               <label for=""></label>
-              <button class="btn-dark">Confirmar</button>
+              <button class="btn-dark" id="submit">Confirmar</button>
             </div>
             <div class="confirmation-form__field">
               <label for=""></label>
@@ -202,6 +202,17 @@
         </div>
       </section>
     </main>
+
+    <div id="success" class="modal-container">
+      <span class="modal-container__modal-box">
+        <div class="modal-container__content-box">
+          <a href="#/" title="Fechar" class="close"><b>X</b></a>
+          <h2>Hey!</h2>
+          <br>
+          <p>Sua presença foi confirmada.<br>Aguardamos anciosamente para compartilhar este dia tão especial com você!</p>
+        </div>
+      </span>
+    </div>
 
     <footer class="footer" id="footer">
       <div>
