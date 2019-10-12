@@ -86,8 +86,6 @@ body {
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: cover;
-  width: 100%;
-  height: 100%;
   position: relative;
   &--header {
     background-image: url('/images/cover-header.jpeg');
@@ -121,7 +119,6 @@ body {
     width: 260px;
     height: 60px;
     margin: 30px;
-    @include transition;
     &:hover > img {
       filter: grayscale(0%);
     }
@@ -137,6 +134,7 @@ body {
       max-width: 60px;
       max-height: 60px;
       user-select: none;
+      @include transition(500ms !important);
     }
     h4 {
       @include fonts($--text-primary, 1.4em, 500, 2px);
@@ -224,6 +222,7 @@ form {
   opacity:0;
   backdrop-filter: blur(16px);
   background-color: rgba(0,0,0,0.8);
+  backface-visibility: hidden;
   pointer-events: none;
   &:target {
     opacity: 1;

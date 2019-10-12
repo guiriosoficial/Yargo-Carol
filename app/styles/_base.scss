@@ -25,7 +25,7 @@ $--color-secondary: #AAAAAA !default;
     letter-spacing: $spacing;
 }
 
-@mixin transition($time: .5s, $type: ease-out) {
+@mixin transition($time: 500ms, $type: ease-out) {
     transition-duration: $time;
     transition-timing-function: $type;
     transition-property: all;
