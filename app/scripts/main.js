@@ -1,17 +1,22 @@
-$(document).ready(function(){
-	$(window).scroll(function() {
+$(document).ready(function () {
+	$(window).scroll(function () {
+		var yPos = $(this).scrollTop();
 		$('.parallax').each(function(){
-		var yPos = - ( $(window).scrollTop() / 3 );
-		var bgPos = '50% '+ yPos + 'px';
-		$(this).css('background-position', bgPos );
+			if ( $(this).is(':first-child') ) { 
+				var bgPos = ( yPos - $(this).position().top ) / 3; 
+			}
+			else { 
+				var bgPos = ( yPos - $(this).position().top + $(this).height() )  / 3;
+			}
+			$(this).css('background-position', '50% -' + bgPos + 'px' );
 		});
 
-		$('.flyin').each(function(i){
-			var objHeight = $(this).height() / 2
-			var objBottom = $(this).offset().top + $(this).outerHeight();
-			var windowBottom = $(window).scrollTop() + $(window).height();
+		$('.flyin').each(function () {
+			let objHeight = $(this).height() / 1.6
+			let objBottom = $(this).offset().top + $(this).outerHeight();
+			let windowBottom = $(window).scrollTop() + $(window).height();
 			if(windowBottom > (objBottom - objHeight)){
-				$(this).animate({ opacity: '1' });
+				$(this).animate({ opacity: '1' }, 2500);
 			}
 		});
 	});
