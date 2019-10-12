@@ -7,13 +7,13 @@ body {
 
 .header {
   &__title {
-    @include fonts($--white, 5rem, 700, 2px);
+    @include fonts($--white, 5em, 700, 2px);
     > span {
-      font-size: 6rem;
+      font-size: 1.2em;
     }
   }
   &__sub-title {
-    @include fonts($--white, 2rem, 400, 1px);    
+    @include fonts($--white, 2em, 400, 1px);    
   }
 }
 
@@ -136,7 +136,7 @@ body {
       user-select: none;
     }
     h4 {
-      @include fonts($--text-primary, 1.4rem, 500, 2px);
+      @include fonts($--text-primary, 1.4em, 500, 2px);
       text-transform: uppercase;
       text-align: left;
       user-select: none;
@@ -175,7 +175,7 @@ form {
     }
   }
   & > h4 {
-    @include fonts($--text-primary, 1.2rem, 400, 1px);
+    @include fonts($--text-primary, 1.2em, 400, 1px);
     margin-top: 60px;
   }
 }
@@ -215,7 +215,7 @@ form {
 .modal-container {
   @include transition;
   @include flexbox(row, center, center);
-  @include position(fixed);
+  // @include position(fixed);
   @include fonts;
   z-index: 99;
   opacity:0;
@@ -261,6 +261,6 @@ form {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 680px) {
   
 }
