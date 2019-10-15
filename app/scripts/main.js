@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   // Verification if the object is in viewport
   function isInViewport(node) {
     var rect = node.getBoundingClientRect()
