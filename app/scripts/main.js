@@ -19,7 +19,7 @@ $(document).ready(function () {
       let objHeight = $(this).height()
       if (isInViewport(this)) {
         let ratio = Math.round(((scroll - objPos) / objHeight) * 100)
-        $(this).css('background-position', 'center ' + parseInt(-(ratio * 1.5)) + 'px')
+        $(this).css('background-position', 'center ' + parseInt(-(ratio * 2)) + 'px')
       }
     });
     // The Fly-Ins
@@ -59,5 +59,5 @@ $(document).ready(function () {
       field.mask(phoneMask.apply({}, arguments), options);
     }
   }
-  $('#phone').mask(phoneMask, options);
+  $('#form-phone').mask(phoneMask, options);
 })
