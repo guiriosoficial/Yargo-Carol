@@ -11,9 +11,9 @@ $(document).ready(function () {
     )
   }
 
-  // The Parallax
   $(window).scroll(function () {
     var scroll = $(this).scrollTop()
+    // The Parallax
     $('.parallax').each(function () {
       let objPos = $(this).offset().top
       let objHeight = $(this).height()
@@ -22,7 +22,6 @@ $(document).ready(function () {
         $(this).css('background-position', 'center ' + parseInt(-(ratio * 1.5)) + 'px')
       }
     });
-
     // The Fly-Ins
     $('.flyin').each(function () {
       let windowHeight = $(window).height()
@@ -34,5 +33,18 @@ $(document).ready(function () {
         $(this).animate({ opacity: '1' }, 2500)
       }
     })
+  })
+
+  // The Modal Window
+  $('[data-modal="gifts-modal"]').click(function (ev) {
+    ev.preventDefault()
+    $('#gifts-modal').css({display: 'flex'})
+  })
+  $('[data-modal="confirmation-modal"]').click(function (ev) {
+    $('#confirmation-modal').css({display: 'flex'})
+  })
+  $('.close').click(function (ev) {
+    ev.preventDefault
+    $('#gifts-modal, #confirmation-modal').css({display: 'none'})
   })
 })

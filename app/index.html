@@ -149,11 +149,11 @@
       <section class="parallax parallax--gifts-list" id="gifts-list">
         <div class="section__content section__content--gifts-list parallax__dots">
             <h1 class="section__sub-title section__sub-title--light">Lista de Presentes</h1>
-            <a class="btn-light" href="#modal">Icasei</a>
+            <a class="btn-light" href="#" data-modal="gifts-modal">Icasei</a>
         </div>
       </section>
 
-      <div id="modal" class="modal-container">
+      <div id="gifts-modal" class="modal-container">
         <span class="modal-container__modal-box">
           <div class="modal-container__content-box">
             <a href="#/" title="Fechar" class="close"><b>X</b></a>
@@ -172,7 +172,7 @@
           <span class="section__title section__title--sub" style="margin-top: 10px;">
             Sua participação é essencial para tornar esse dia ainda mais lindo! Confirme sua presença e venha celebrar conosco a união de dois corações &lsaquo;3
           </span>
-          <form name="presence-confirmation" class="confirmation-form section__article" method="POST" action="#success" data-netlify="true">
+          <form name="presence-confirmation" class="confirmation-form section__article" method="POST" action="#" data-modal="confirmation-modal" data-netlify="true">
             <div class="confirmation-form__field">
               <label for="name">Nome Completo:</label>
               <input name="name" type="text" id="name" required>
@@ -203,7 +203,7 @@
       </section>
     </main>
 
-    <!-- <div id="success" class="modal-container">
+    <div id="confirmation-modal" class="modal-container">
       <span class="modal-container__modal-box">
         <div class="modal-container__content-box">
           <a href="#/" title="Fechar" class="close"><b>X</b></a>
@@ -213,7 +213,7 @@
           <p>Aguardamos ansiosamente para compartilhar esse dia com você!</p>
         </div>
       </span>
-    </div> -->
+    </div>
 
     <footer class="footer" id="footer">
       <div>

@@ -216,27 +216,25 @@ form {
 .modal-container {
   @include transition;
   @include flexbox(row, center, center);
-  // @include position(fixed);
+  @include position(fixed);
   @include fonts;
   z-index: 99;
-  opacity:0;
+  display: none;
   backdrop-filter: blur(16px);
   background-color: rgba(0,0,0,0.8);
   backface-visibility: hidden;
-  pointer-events: none;
-  &:target {
-    opacity: 1;
-    pointer-events: auto;
-  }
   &__modal-box {
     @include flexbox(column, center, center);
     @include position;
+    z-index: 999;
     padding: 32px;
     width: 50%;
     text-align: left;
     background: $--white;
   }
   &__content-box {
+    width: 100%;
+    height: 100%;
     border: solid $--color-primary 2px;
     padding: 24px;
   }
