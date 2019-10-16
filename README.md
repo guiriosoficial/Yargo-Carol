@@ -18,4 +18,4 @@ You can use this template by following the instructions in [Project Setup](#proj
 - Ajustar fly-ins
 - Integração com Netlify
 - Editar Transições
-- 
+- Mudar Mascara de Telefone

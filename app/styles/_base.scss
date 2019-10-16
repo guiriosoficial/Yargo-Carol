@@ -9,6 +9,7 @@ $--text-primary: #424242 !default;
 $--text-secondary: #AAAAAA !default;
 $--color-primary: #424242 !default;
 $--color-secondary: #AAAAAA !default;
+$--color-danger: darkred;
 
 // MIXINS
 @mixin flexbox($di: column, $jc: center, $ai: center) {

@@ -156,7 +156,7 @@
       <div id="gifts-modal" class="modal-container">
         <span class="modal-container__modal-box">
           <div class="modal-container__content-box">
-            <a href="#/" title="Fechar" class="close"><b>X</b></a>
+            <a href="#/" title="Fechar" class="close">X</a>
             <h2>Hey!</h2>
             <br>
             <p>Já temos vários utensílios para nossa casa, por isso, estamos preferindo receber presentes em dinheiro para comprarmos os eletrodomésticos que faltam. Na nossa lista virtual, você pode comprar cotas no valor que quiser. Entretanto, caso você faça questão de nos dar algo físico, fale conosco</p>
@@ -174,16 +174,16 @@
           </span>
           <form name="presence-confirmation" class="confirmation-form section__article" method="POST" action="#" data-modal="confirmation-modal" data-netlify="true">
             <div class="confirmation-form__field">
-              <label for="name">Nome Completo:</label>
+              <label for="name"><b>*</b>Nome Completo:</label>
               <input name="name" type="text" id="name" required>
             </div>
             <div class="confirmation-form__field">
-              <label for="email">E-mail:</label>
+              <label for="email"><b>*</b>E-mail:</label>
               <input name="email" type="email" id="email" required>
             </div>
             <div class="confirmation-form__field">
-              <label for="phone">Telefone:</label>
-              <input name="phone" type="text" id="phone" required>
+              <label for="phone"><b>*</b>Telefone:</label>
+              <input name="phone" type="tel" pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}" id="phone" required>
             </div>
             <div class="confirmation-form__field">
               <label for="message">Deixe-nos uma mensagem!</label>
@@ -195,7 +195,7 @@
             </div>
             <div class="confirmation-form__field">
               <label for=""></label>
-              <span><b>*</b>Caso você esteja confirmando a presença de sua família, envie um formulário por pessoa.</span>
+              <span><b>*</b>Campos Obrigatórios. <br><br> <b>*</b>Caso você esteja confirmando a presença de sua família, envie um formulário por pessoa. </span>
             </div>
             <h4 class="confirmation-form__contacts">Yargo: (11) 95243-4319 | Carol: (12) 98828-5572</h4>
           </form>
@@ -206,7 +206,7 @@
     <div id="confirmation-modal" class="modal-container">
       <span class="modal-container__modal-box">
         <div class="modal-container__content-box">
-          <a href="#/" title="Fechar" class="close"><b>X</b></a>
+          <a href="#/" title="Fechar" class="close"></a>
           <h2>Hey!</h2>
           <br>
           <p>Sua presença foi confirmada.</p>
@@ -225,6 +225,7 @@
     </footer>
     <!-- build:js scripts/vendor.js -->
     <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
     <!-- endbuild -->
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>

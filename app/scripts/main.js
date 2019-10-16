@@ -40,11 +40,24 @@ $(document).ready(function () {
     ev.preventDefault()
     $('#gifts-modal').css({display: 'flex'})
   })
-  $('[data-modal="confirmation-modal"]').click(function (ev) {
+  $('[data-modal="confirmation-modal"]').submit(function (ev) {
     $('#confirmation-modal').css({display: 'flex'})
   })
   $('.close, .modal-container').click(function (ev) {
-    ev.preventDefault()
-    $('#gifts-modal, #confirmation-modal').css({display: 'none'})
+    if (ev.target.className === 'close' || ev.target.className === 'modal-container') {
+      ev.preventDefault()
+      $('#gifts-modal, #confirmation-modal').css({display: 'none'})
+    }
   })
+
+  // The Masks
+  var phoneMask = function (num) {
+    return num.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+  }
+  var options = {
+    onKeyPress: function (val, e, field, options) {
+      field.mask(phoneMask.apply({}, arguments), options);
+    }
+  }
+  $('#phone').mask(phoneMask, options);
 })

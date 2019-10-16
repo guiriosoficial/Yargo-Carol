@@ -33,7 +33,8 @@
     "tasks": "gulp --tasks"
   },
   "dependencies": {
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "jquery-mask-plugin": "^1.14.16"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

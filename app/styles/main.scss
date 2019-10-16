@@ -150,7 +150,7 @@ form {
     @include flexbox(row, flex-start, flex-start);
     margin-top: 20px;
     label {
-      width: 126px;
+      width: 132px;
       display: flex;
       justify-content: flex-end;
       margin-right: 16px;
@@ -169,8 +169,8 @@ form {
       }
     }
     span {
-      @include fonts(darkred);
-      text-align: center;
+      @include fonts($--color-danger);
+      text-align: left;
       line-height: 18px;
       width: 340px;
     }
@@ -220,7 +220,7 @@ form {
   @include fonts;
   z-index: 99;
   display: none;
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(8px);
   background-color: rgba(0,0,0,0.8);
   backface-visibility: hidden;
   // pointer-events: none;
@@ -246,6 +246,7 @@ form {
   .close {
     @include fonts($--text-secondary, 1.2em, 400, 0px);
     @include position(absolute, 56px, 56px, '', '');
+    font-weight: bold;
   }
 }
 
