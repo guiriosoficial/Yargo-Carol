@@ -43,8 +43,8 @@ $(document).ready(function () {
   $('[data-modal="confirmation-modal"]').click(function (ev) {
     $('#confirmation-modal').css({display: 'flex'})
   })
-  $('.close').click(function (ev) {
-    ev.preventDefault
+  $('.close, .modal-container').click(function (ev) {
+    ev.preventDefault()
     $('#gifts-modal, #confirmation-modal').css({display: 'none'})
   })
 })

@@ -223,6 +223,11 @@ form {
   backdrop-filter: blur(16px);
   background-color: rgba(0,0,0,0.8);
   backface-visibility: hidden;
+  // pointer-events: none;
+  // &:target {
+  //   opacity: 1;
+  //   pointer-events: auto;
+  // }
   &__modal-box {
     @include flexbox(column, center, center);
     @include position;
