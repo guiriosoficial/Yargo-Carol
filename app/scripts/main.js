@@ -9,7 +9,7 @@ $(document).ready(function () {
       rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
       rect.left <= (window.innerWidth || document.documentElement.clientWidth)
     )
-  }
+  };
 
   $(window).scroll(function () {
     var scroll = $(this).scrollTop()
@@ -32,23 +32,23 @@ $(document).ready(function () {
       if (windowBottom > diff) {
         $(this).animate({ opacity: '1' }, 2500)
       }
-    })
+    });
   })
 
   // The Modal Window
   $('[data-modal="gifts-modal"]').click(function (ev) {
     ev.preventDefault()
     $('#gifts-modal').css({display: 'flex'})
-  })
+  });
   $('[data-modal="confirmation-modal"]').submit(function (ev) {
     $('#confirmation-modal').css({display: 'flex'})
-  })
+  });
   $('.close, .modal-container').click(function (ev) {
     if (ev.target.className === 'close' || ev.target.className === 'modal-container') {
       ev.preventDefault()
       $('#gifts-modal, #confirmation-modal').css({display: 'none'})
     }
-  })
+  });
 
   // The Masks
   var phoneMask = function (num) {
