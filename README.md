@@ -9,3 +9,13 @@ You can use this template by following the instructions in [Project Setup](#proj
 -  **Install Dependencies:**  `npm install`
 -  **Start Development Server:**  `npm start`
 -  **Compiles For Production:**  `npm run build`
+
+
+## Tips
+- Usar Modais sem Jquery
+- Remover Modais ou Links
+- Ajustar Velocidade do Parallax
+- Ajustar fly-ins
+- Integração com Netlify
+- Editar Transições
+- 
