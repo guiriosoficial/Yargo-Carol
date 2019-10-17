@@ -52,13 +52,13 @@ body {
       margin: 160px 0px;
     }
     &--ceremony {
-      width: 600px;
+      width: 660px;
       max-width: 100%;
       margin: 160px 0px;
       padding: 0 80px;
     }
     &--tips {
-      width: 600px;
+      width: 660px;
       max-width: 100%;
       margin: 160px 0px;
       padding: 0 80px;
@@ -167,13 +167,16 @@ form {
       &:hover, &:focus {
         border: $--color-primary 1px solid;
       }
+      &:-moz-submit-invalid {
+        border: $--color-danger 1px solid;
+      }
     }
     span {
       @include fonts($--color-danger);
-      text-align: left;
+      text-align: justify;
       line-height: 18px;
       width: 340px;
-    }
+      }
   }
   & > h4 {
     @include fonts($--text-primary, 1.2em, 400, 1px);

@@ -51,6 +51,8 @@ $(document).ready(function () {
   })
 
   // The Masks
+  $('#form-name').css('text-transform', 'capitalize')
+
   var phoneMask = function (num) {
     return num.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
   }
@@ -60,4 +62,9 @@ $(document).ready(function () {
     }
   }
   $('#form-phone').mask(phoneMask, options);
+
+
+  $('#form-submit').click(function (ev) {
+    console.log(ev)
+  })
 })

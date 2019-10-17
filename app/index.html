@@ -166,16 +166,16 @@
         </span>
       </div>
 
-      <section class="section" id="confirmation-form">
+      <section class="section" id="presence-confirmation">
         <div class="section__content section__content--confirmation-form flyin">
           <h1 class="section__sub-title" style="margin-top: 0px;">Confirme sua Presença</h1>
           <span class="section__title section__title--sub" style="margin-top: 10px;">
             Sua participação é essencial para tornar esse dia ainda mais lindo! Confirme sua presença e venha celebrar conosco a união de dois corações &lsaquo;3
           </span>
-          <form name="presence-confirmation" class="confirmation-form section__article" method="POST" action="#" data-modal="confirmation-modal" data-netlify="true">
+          <form id="confirmation-form" name="presence-confirmation" class="confirmation-form section__article" method="POST" action="#" data-modal="confirmation-modal" data-netlify="true">
             <div class="confirmation-form__field">
               <label for="name"><b>*</b>Nome Completo:</label>
-              <input name="name" type="text" id="form-name" placeholder="" required>
+              <input name="name" type="text" id="form-name" placeholder="" minlength="2"required>
             </div>
             <div class="confirmation-form__field">
               <label for="email"><b>*</b>E-mail:</label>
@@ -195,7 +195,9 @@
             </div>
             <div class="confirmation-form__field">
               <label for=""></label>
-              <span><b>*</b>Campos Obrigatórios. <br><br> <b>*</b>Caso você esteja confirmando a presença de sua família, envie um formulário por pessoa. </span>
+              <span>
+                <p><b>ATENÇÃO: </b>Caso você esteja confirmando a presença de sua família, envie um formulário por pessoa.</p>
+              </span>
             </div>
             <h4 class="confirmation-form__contacts">Yargo: (11) 95243-4319 | Carol: (12) 98828-5572</h4>
           </form>
