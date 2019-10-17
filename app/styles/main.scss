@@ -167,8 +167,11 @@ form {
       &:hover, &:focus {
         border: $--color-primary 1px solid;
       }
-      &:-moz-submit-invalid {
-        border: $--color-danger 1px solid;
+    }
+    .isInvalid {
+      border: $--color-danger 1px solid !important;
+      &:hover, &:focus {
+        border: $--color-danger 1px solid !important;
       }
     }
     span {
