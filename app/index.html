@@ -173,33 +173,42 @@
             Sua participação é essencial para tornar esse dia ainda mais lindo! Confirme sua presença e venha celebrar conosco a união de dois corações &lsaquo;3
           </span>
           <form id="confirmation-form" name="presence-confirmation" class="confirmation-form section__article" method="POST" action="#" data-modal="confirmation-modal" data-netlify="true" novalidate>
-            <div class="confirmation-form__field">
+            <div class="isInvalidAlert">
+              <label for=""></label>
+              <span>
+                <p id="invalid-empty-field" style="display: none;"><b>*</b>Campos obrigatórios.</p>
+                <p id="invalid-name-field" style="display: none;">- O <b>Nome</b> deve conter no mínimo duas palavras</p>
+                <p id="invalid-email-field" style="display: none;">- O <b>E-mail</b> deve conter um '@', um domínio e uma extenção</p>
+                <p id="invalid-phone-field" style="display: none;">- O <b>Telefone</b> deve conter 10 ou 11 números e incluir DDD</p>
+              </span>
+            </div>
+            <div>
               <label for="name"><b>*</b>Nome Completo:</label>
               <input name="name" type="text" id="form-name" placeholder="" value="">
             </div>
-            <div class="confirmation-form__field">
+            <div>
               <label for="email"><b>*</b>E-mail:</label>
               <input name="email" type="email" id="form-email" placeholder="" value="">
             </div>
-            <div class="confirmation-form__field">
+            <div>
               <label for="phone"><b>*</b>Telefone:</label>
               <input name="phone" type="tel" id="form-phone" placeholder="" value="">
             </div>
-            <div class="confirmation-form__field">
+            <div>
               <label for="message">Deixe-nos uma mensagem!</label>
               <textarea name="message" id="form-message" placeholder="" rows="4"></textarea>
             </div>
-            <div class="confirmation-form__field">
+            <div>
               <label for="submit"></label>
               <button type="submit" name="submit" class="btn-dark" id="form-submit">Confirmar</button>
             </div>
-            <div class="confirmation-form__field">
+            <div>
               <label for=""></label>
               <span>
                 <p><b>ATENÇÃO: </b>Caso você esteja confirmando a presença de sua família, envie um formulário por pessoa.</p>
               </span>
             </div>
-            <h4 class="confirmation-form__contacts">Yargo: (11) 95243-4319 | Carol: (12) 98828-5572</h4>
+            <h4>Yargo: (11) 95243-4319 | Carol: (12) 98828-5572</h4>
           </form>
         </div>
       </section>

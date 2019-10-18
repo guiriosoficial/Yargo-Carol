@@ -61,23 +61,26 @@ $(document).ready(function () {
   function email_valid (email) { return email !== '' ? email_format.test(email.val()) : false }
   function phone_valid (phone) { return phone !== '' ? phone_format.test(phone.val()) : false }
 
-  $('#form-name').keyup(function (evt) { !name_valid(name_input) ? name_input.addClass('isInvalid') : name_input.removeClass('isInvalid nameInvalid') })
-  $('#form-email').keyup(function (evt) { !email_valid(email_input) ? email_input.addClass('isInvalid') : email_input.removeClass('isInvalid emailInvalid') })
-  $('#form-phone').keyup(function (evt) { !phone_valid(phone_input) ? phone_input.addClass('isInvalid') : phone_input.removeClass('isInvalid phoneInvalid') })
+  $('#form-name').keyup(function (evt) { !name_valid(name_input) ? name_input.addClass('isInvalid') : name_input.removeClass('isInvalid') && $('#invalid-name-field').css({ display: 'none' }) })
+  $('#form-email').keyup(function (evt) { !email_valid(email_input) ? email_input.addClass('isInvalid') : email_input.removeClass('isInvalid') && $('#invalid-email-field').css({ display: 'none' }) })
+  $('#form-phone').keyup(function (evt) { !phone_valid(phone_input) ? phone_input.addClass('isInvalid') : phone_input.removeClass('isInvalid') && $('#invalid-phone-field').css({ display: 'none' }) })
+  
+
   
   $('#confirmation-form').submit(function (evt) {
     if (name_valid(name_input) && email_valid(email_input) && phone_valid(phone_input)) {
-      $('#confirmation-modal').css({display: 'flex'})
-      evt.preventDefault()
-
-      name_input.removeClass('isInvalid nameInvalid')
-      email_input.removeClass('isInvalid emailInvalid')
-      phone_input.removeClass('isInvalid phoneInvalid')
+      $('#confirmation-modal').css({ display: 'flex' })
+      $('.isInvalidAlert').css({ display: 'none' })
+      name_input.removeClass('isInvalid')
+      email_input.removeClass('isInvalid')
+      phone_input.removeClass('isInvalid')
     } else {
       evt.preventDefault()
-      !name_valid(name_input) ? name_input.addClass('isInvalid nameInvalid') : name_input.removeClass('isInvalid nameInvalid')
-      !email_valid(email_input) ? email_input.addClass('isInvalid emailInvalid') : email_input.removeClass('isInvalid emailInvalid')
-      !phone_valid(phone_input) ? phone_input.addClass('isInvalid phoneInvalid') : phone_input.removeClass('isInvalid phoneInvalid')
+      $('.isInvalidAlert').css({ display: 'flex' })
+      name_input.val() === '' || email_input.val() === '' || phone_input.val() === '' ? $('#invalid-empty-field').css({ display: 'block' }) : $('#invalid-empty-field').css({ display: 'none' })
+      !name_valid(name_input) ? name_input.addClass('isInvalid') && $('#invalid-name-field').css({ display: 'block' }) : name_input.removeClass('isInvalid')
+      !email_valid(email_input) ? email_input.addClass('isInvalid') && $('#invalid-email-field').css({ display: 'block' }) : email_input.removeClass('isInvalid')
+      !phone_valid(phone_input) ? phone_input.addClass('isInvalid') && $('#invalid-phone-field').css({ display: 'block' }) : phone_input.removeClass('isInvalid')
       return false
     }
   })
@@ -85,7 +88,7 @@ $(document).ready(function () {
   // The Modal Window
   $('[data-modal="gifts-modal"]').click(function (evt) {
     evt.preventDefault()
-    $('#gifts-modal').css({display: 'flex'})
+    $('#gifts-modal').css({ display: 'flex' })
   })
   /*
   $('[data-modal="confirmation-modal"]').submit(function (ev) {
@@ -95,7 +98,7 @@ $(document).ready(function () {
   $('.close, .modal-container').click(function (evt) {
     if (evt.target.className === 'close' || evt.target.className === 'modal-container') {
       evt.preventDefault()
-      $('#gifts-modal, #confirmation-modal').css({display: 'none'})
+      $('#gifts-modal, #confirmation-modal').css({ display: 'none' })
     }
   })
 

@@ -145,7 +145,7 @@ body {
   }
 }
 
-form {
+form.confirmation-form {
   & > div {
     @include flexbox(row, flex-start, flex-start);
     margin-top: 20px;
@@ -179,11 +179,26 @@ form {
       text-align: justify;
       line-height: 18px;
       width: 340px;
-      }
+    }
   }
   & > h4 {
     @include fonts($--text-primary, 1.2em, 400, 1px);
     margin-top: 60px;
+  }
+  .isInvalidAlert {
+    @include transition;
+    display: none;
+    > span {
+      @include fonts($--color-danger, 1em, 400, 1px);
+      line-height: 18px;
+      padding: 14px;
+      text-align: left;
+      background-color: mix($--color-danger, $--white, 10%);
+      border: $--color-danger 1px solid !important;
+      p { margin-top: 6px; display: block; }
+      p:first-of-type { margin-top: 0; }
+      
+    }
   }
 }
 
