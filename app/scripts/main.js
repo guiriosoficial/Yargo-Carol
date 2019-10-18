@@ -65,8 +65,6 @@ $(document).ready(function () {
   $('#form-email').keyup(function (evt) { !email_valid(email_input) ? email_input.addClass('isInvalid') : email_input.removeClass('isInvalid') && $('#invalid-email-field').css({ display: 'none' }) })
   $('#form-phone').keyup(function (evt) { !phone_valid(phone_input) ? phone_input.addClass('isInvalid') : phone_input.removeClass('isInvalid') && $('#invalid-phone-field').css({ display: 'none' }) })
   
-
-  
   $('#confirmation-form').submit(function (evt) {
     if (name_valid(name_input) && email_valid(email_input) && phone_valid(phone_input)) {
       $('#confirmation-modal').css({ display: 'flex' })
