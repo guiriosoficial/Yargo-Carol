@@ -82,11 +82,10 @@ body {
 
 .parallax {
   margin: 20px;
+  background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  // position: relative;
-  // background-position: center;
   &--header {
     background-image: url('/images/cover-header.jpeg');
     height: calc(100vh - 40px);
@@ -288,6 +287,94 @@ form.confirmation-form {
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 600px) {
+  .parallax {
+    margin: 10px;
+    &--header {
+      // background-image: url('/images/cover-header.jpeg');
+      height: calc(100vh - 20px);
+    } 
+    &--history-ceremony {
+      // background-image: url('/images/history-ceremony.jpeg');
+      height: calc(100vh - 20px);
+    }
+    &--ceremony-guests {
+      // background-image: url('/images/ceremony-guests.jpeg');
+      height: calc(100vh - 20px);
+    }
+    &--gifts-list {
+      // background-image: url('/images/gifts-list.jpeg');
+      height: calc(100vh - 20px);
+    }
+  }
+}
+
+@media (max-width: 1080px) {
+  .parallax {
+    &--header {
+      // background-image: url('/images/cover-header.jpeg');
+      height: calc(100vh - 20px);
+    } 
+    &--history-ceremony {
+      // background-image: url('/images/history-ceremony.jpeg');
+      height: calc(100vh - 20px);
+    }
+    &--ceremony-guests {
+      // background-image: url('/images/ceremony-guests.jpeg');
+      height: calc(100vh - 20px);
+    }
+    &--gifts-list {
+      // background-image: url('/images/gifts-list.jpeg');
+      height: calc(100vh - 20px);
+    }
+
+  }
+  .section {
+    @include flexbox;
+    min-height: 80vh;
+    margin: 20px;
+   
+    &__article {
+      @include fonts;
+      line-height: 30px;
+      margin-top: 26px;
+    }
+    &__content {
+      &--more-articles {
+        @include flexbox(column !important, center !important, center !important);
+        max-width: 90%;
+      }
+      &--history {
+        margin: 100px 0px;
+      }
+      &--ceremony {
+        width: 700px;
+        max-width: 90%;
+        margin: 100px 0px;
+        padding: 0;
+      }
+      &--tips {
+        width: 700px;
+        max-width: 90%;
+        margin: 0px 0px 100px;
+        padding: 100px 0px 0px;
+        border-top: $--color-primary 1px solid;
+        border-left: none;
+      }
+      &--special-guests {
+        width: ((60px + 20px) + 180px + (30px * 2)) * 3 !important;
+        max-width: 100%;
+        margin: 100px 0px;
+      }
+      &--gifts-list {
+        padding: 160px 0;
+      }
+      &--confirmation-form {
+        width: 800px;
+        max-width: 90%;
+        margin: 100px 0px;
+      }
+    }
+  }
   
 }

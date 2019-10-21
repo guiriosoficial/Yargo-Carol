@@ -1,6 +1,6 @@
 $(document).ready(function () {
   // Verification if the object is in viewport
-  function isInViewport(node) {
+  function isInViewport (node) {
     var rect = node.getBoundingClientRect()
     return (
       (rect.height > 0 || rect.width > 0) &&
@@ -18,7 +18,7 @@ $(document).ready(function () {
       var objPos = $(this).offset().top
       var objHeight = $(this).height()
       if (isInViewport(this)) {
-        var ratio = Math.round(((scroll - objPos) / objHeight) * 100);
+        var ratio = Math.round(((scroll - objPos) / objHeight) * 100)
         $(this).css('background-position', 'center ' + parseInt(-(ratio * 2)) + 'px')
       }
     })
