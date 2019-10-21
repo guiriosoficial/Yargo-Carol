@@ -1,0 +1,133 @@
+@import 'base';
+
+// ============================================ //
+// ================== MEDIUM ================== //
+// ============================================ //
+@media (max-width: 1024px) {
+  // .parallax {
+    // &--header { background-image: url('/images/cover-header.jpeg'); } 
+    // &--history-ceremony { background-image: url('/images/history-ceremony.jpeg'); }
+    // &--ceremony-guests { background-image: url('/images/ceremony-guests.jpeg'); }
+    // &--gifts-list { background-image: url('/images/gifts-list.jpeg'); }
+  // }
+
+  .section {
+    &__content {
+      &--more-articles {
+        @include flexbox(column !important, center !important, center !important);
+        max-width: 100%;
+      }
+      &--history {
+        margin: 100px 0px;
+      }
+      &--ceremony {
+        width: 700px;
+        max-width: 100%;
+        margin: 100px 0px;
+        padding: 0;
+      }
+      &--tips {
+        width: 700px;
+        max-width: 100%;
+        margin: 0px 0px 100px;
+        padding: 100px 0px 0px;
+        border-left: none;
+        border-top: $--color-primary 1px solid;
+      }
+      &--special-guests {
+        margin: 100px 0px;
+      }
+      &--confirmation-form {
+        margin: 100px 0px;
+      }
+    }
+  }
+}
+
+// ============================================= //
+// =================== SMALL =================== //
+// ============================================= //
+@media (max-width: 600px) {
+  .parallax {
+    margin: 10px;
+    &--header {
+      // background-image: url('/images/cover-header.jpeg');
+      height: calc(100vh - 20px);
+    } 
+    &--history-ceremony {
+      // background-image: url('/images/history-ceremony.jpeg');
+      height: calc(100vh - 20px);
+    }
+    &--ceremony-guests {
+      // background-image: url('/images/ceremony-guests.jpeg');
+      height: calc(100vh - 20px);
+    }
+    &--gifts-list {
+      // background-image: url('/images/gifts-list.jpeg');
+      height: calc(100vh - 20px);
+    }
+  }
+
+  .section {
+    margin: 10px;
+    &__content {
+        &--more-articles {
+        @include flexbox(center !important, center !important, center !important);
+        max-width: 100%;
+      }
+      &--history {
+        width: 92%;
+        margin: 80px 0px;
+      }
+      &--ceremony {
+        width: 92%;
+        margin: 80px 0px;
+      }
+      &--tips {
+        width: 92%;
+        margin: 0px 0px 80px;
+        padding: 80px 0px 0px;
+      }
+      &--special-guests {
+        max-width: 100%;
+        margin: 80px 0px;
+      }
+      &--confirmation-form {
+        width: 100%;
+        max-width: 100%;
+        margin: 80px 0px;
+      }
+    }
+  }
+
+  .footer {
+    @include flexbox(column, center, center);
+    padding: 10px;
+    height: auto;
+    > div:last-of-type {
+      margin-top: 4px;
+    }
+  }
+
+  form.confirmation-form {
+    & > div {
+      @include flexbox(column, flex-start, flex-start);
+      margin-top: 10px;
+      label {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 6px 0px;
+      }
+      input, textarea, span {
+        width: 100%;
+      }
+    }
+    & > h4 {
+      margin-top: 40px;
+    }
+  }
+
+  .btn-dark {
+    width: 100%;
+  }
+}

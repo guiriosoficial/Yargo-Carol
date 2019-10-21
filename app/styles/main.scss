@@ -161,7 +161,7 @@ form.confirmation-form {
       font-family: 'Raleway', sans-serif;
       border: $--color-secondary 1px solid;
       padding: 14px;
-      width: 340px;
+      width: 400px;
       @include transition;
       &:hover, &:focus {
         border: $--color-primary 1px solid;
@@ -177,7 +177,7 @@ form.confirmation-form {
       @include fonts($--color-danger);
       text-align: justify;
       line-height: 18px;
-      width: 340px;
+      width: 400px;
     }
   }
   & > h4 {
@@ -287,145 +287,4 @@ form.confirmation-form {
   }
 }
 
-
-
-@media (max-width: 1080px) {
-  .parallax {
-    &--header {
-      // background-image: url('/images/cover-header.jpeg');
-    } 
-    &--history-ceremony {
-      // background-image: url('/images/history-ceremony.jpeg');
-    }
-    &--ceremony-guests {
-      // background-image: url('/images/ceremony-guests.jpeg');
-    }
-    &--gifts-list {
-      // background-image: url('/images/gifts-list.jpeg');
-    }
-
-  }
-  .section {
-    &__content {
-      &--more-articles {
-        @include flexbox(column !important, center !important, center !important);
-        max-width: 90%;
-      }
-      &--history {
-        margin: 100px 0px;
-      }
-      &--ceremony {
-        width: 700px;
-        max-width: 90%;
-        margin: 100px 0px;
-        padding: 0;
-      }
-      &--tips {
-        width: 700px;
-        max-width: 90%;
-        margin: 0px 0px 100px;
-        padding: 100px 0px 0px;
-        border-left: none;
-        border-top: $--color-primary 1px solid;
-      }
-      &--special-guests {
-        margin: 100px 0px;
-      }
-      &--confirmation-form {
-        margin: 100px 0px;
-      }
-    }
-  }
-}
-
-@media (max-width: 600px) {
-  .parallax {
-    margin: 10px;
-    &--header {
-      // background-image: url('/images/cover-header.jpeg');
-      height: calc(100vh - 20px);
-    } 
-    &--history-ceremony {
-      // background-image: url('/images/history-ceremony.jpeg');
-      height: calc(100vh - 20px);
-    }
-    &--ceremony-guests {
-      // background-image: url('/images/ceremony-guests.jpeg');
-      height: calc(100vh - 20px);
-    }
-    &--gifts-list {
-      // background-image: url('/images/gifts-list.jpeg');
-      height: calc(100vh - 20px);
-    }
-  }
-  .section {
-    margin: 10px;
-    &__title {
-      @include fonts($--text-secondary, 1em, 700, 2px);
-      text-transform: uppercase;
-      line-height: 30px;
-    }
-    &__sub-title {
-      @include fonts($--text-primary, 3.45em, 500, 6px);
-      text-transform: uppercase;
-      line-height: 56px;
-      &--light {
-        color: $--white !important;
-        letter-spacing: 10px !important;
-      }
-    }
-    &__article {
-      @include fonts;
-      line-height: 30px;
-      margin-top: 26px;
-    }
-    &__content {
-      @include flexbox;
-      &--more-articles {
-        @include flexbox(center !important, center !important, center !important);
-        max-width: 100%;
-      }
-      &--history {
-        width: 90%;
-        max-width: 90%;
-        margin: 80px 0px;
-      }
-      &--ceremony {
-        width: 90%;
-        max-width: 100%;
-        margin: 80px 0px;
-        padding: 0;
-      }
-      &--tips {
-        width: 90%;
-        max-width: 90%;
-        margin: 0px 0px 80px;
-        padding: 80px 0px 0px;
-        border-left: none;
-        border-top: $--color-primary 1px solid;
-      }
-      &--special-guests {
-        max-width: 100%;
-        margin: 80px 0px;
-      }
-      &--gifts-list {
-        // padding: 160px 0;
-      }
-      &--confirmation-form {
-        width: 800px;
-        max-width: 90%;
-        margin: 80px 0px;
-      }
-    }
-  }
-
-
-  .footer {
-    @include flexbox(column !important, center, center);
-    padding: 10px;
-    height: auto;
-    > div:last-of-type {
-      margin-top: 6px;
-    }
-  }
-}
+@import 'breakpoints.scss';
