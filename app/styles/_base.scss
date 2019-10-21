@@ -13,46 +13,46 @@ $--color-danger: darkred;
 
 // MIXINS
 @mixin flexbox($di: column, $jc: center, $ai: center) {
-    display: flex;
-    justify-content: $jc;
-    align-items: $ai;
-    flex-direction: $di;
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-direction: $di;
 }
 
 @mixin fonts($color: $--text-primary, $size: 1em, $weight: 400, $spacing: 1px) {
-    color: $color;
-    font-size: $size;
-    font-weight: $weight;
-    letter-spacing: $spacing;
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+  letter-spacing: $spacing;
 }
 
 @mixin transition($time: 500ms, $type: ease-out) {
-    transition-duration: $time;
-    transition-timing-function: $type;
-    transition-property: all;
+  transition-duration: $time;
+  transition-timing-function: $type;
+  transition-property: all;
 }
 
 @mixin position($pos: relative, $top: 0, $right: 0, $bottom: 0, $left: 0) {
-    position: $pos;
-    top: $top;
-    left: $left;
-    right: $right;
-    bottom: $bottom;
+  position: $pos;
+  top: $top;
+  left: $left;
+  right: $right;
+  bottom: $bottom;
 }
 
 // RESET
 * {
-    margin: 0;
-    border: 0;
-    padding: 0;
-    outline: 0;
-    box-shadow: none;
-    box-sizing: border-box;
-    text-decoration: none;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+  text-decoration: none;
 }
 
 html {
-font-size: 14px;
-text-align: center;
-font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
 }
