@@ -1,6 +1,6 @@
 $(document).ready(function () {
   // Verification if the object is in viewport
-  function isInViewport (node) {
+  function isInViewport(node) {
     var rect = node.getBoundingClientRect()
     return (
       (rect.height > 0 || rect.width > 0) &&
@@ -56,15 +56,15 @@ $(document).ready(function () {
   var name_input = $('#form-name')
   var email_input = $('#form-email')
   var phone_input = $('#form-phone')
-  
-  function name_valid (name) { return name !== '' ? name_format.test(name.val()) : false }
-  function email_valid (email) { return email !== '' ? email_format.test(email.val()) : false }
-  function phone_valid (phone) { return phone !== '' ? phone_format.test(phone.val()) : false }
+
+  function name_valid(name) { return name !== '' ? name_format.test(name.val()) : false }
+  function email_valid(email) { return email !== '' ? email_format.test(email.val()) : false }
+  function phone_valid(phone) { return phone !== '' ? phone_format.test(phone.val()) : false }
 
   $('#form-name').keyup(function (evt) { !name_valid(name_input) ? name_input.addClass('isInvalid') : name_input.removeClass('isInvalid') && $('#invalid-name-field').css({ display: 'none' }) })
   $('#form-email').keyup(function (evt) { !email_valid(email_input) ? email_input.addClass('isInvalid') : email_input.removeClass('isInvalid') && $('#invalid-email-field').css({ display: 'none' }) })
   $('#form-phone').keyup(function (evt) { !phone_valid(phone_input) ? phone_input.addClass('isInvalid') : phone_input.removeClass('isInvalid') && $('#invalid-phone-field').css({ display: 'none' }) })
-  
+
   $('#confirmation-form').submit(function (evt) {
     if (name_valid(name_input) && email_valid(email_input) && phone_valid(phone_input)) {
       $('#confirmation-modal').css({ display: 'flex' })
@@ -99,5 +99,4 @@ $(document).ready(function () {
       $('#gifts-modal, #confirmation-modal').css({ display: 'none' })
     }
   })
-
 })
