@@ -51,5 +51,6 @@ You can follow this table to make some things easier to customize
 
 <sup>6</sup>Recommended to use pictures with 1:1 ratio, 50x50 resolution to avoid distort the images.  
 
+***
 
 > Please, don't forget to give credits ;).
