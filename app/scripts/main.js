@@ -18,28 +18,32 @@ $(document).ready(function () {
       var objPos = $(this).offset().top
       var objHeight = $(this).height()
       if (isInViewport(this)) {
-        var ratio = Math.round(((scroll - objPos) / objHeight) * 100)
+        var parallaxSpeed = 100
+        var ratio = Math.round(((scroll - objPos) / objHeight) * parallaxSpeed)
         $(this).css('background-position', 'center ' + parseInt(-(ratio * 2)) + 'px')
       }
     })
     // The Fly-Ins
     $('.flyin').each(function () {
+      var flyinTiming = 1.6
       var windowHeight = $(window).height()
       var objHeight = $(this).height()
       var objBottom = $(this).offset().top + $(this).outerHeight()
       var windowBottom = scroll + windowHeight
-      var diff = objBottom - (objHeight / 1.6)
+      var diff = objBottom - (objHeight / flyinTiming)
       if (windowBottom > diff) {
-        $(this).animate({ opacity: '1' }, 2500)
+        var flyinSpeed = 2500
+        $(this).animate({ opacity: '1' }, flyinSpeed)
       }
     })
   })
 
   // The Masks
   $('#form-name').css('text-transform', 'capitalize')
-
+  
+  var masks = ['(00) 00000-0000','(00) 0000-00009']
   var phoneMask = function (num) {
-    return num.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+    return num.replace(/\D/g, '').length === 11 ? masks[0] : masks[1];
   }
   var options = {
     onKeyPress: function (val, evt, field, options) {

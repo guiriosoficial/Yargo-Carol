@@ -11,6 +11,23 @@ $--color-primary: #424242 !default;
 $--color-secondary: #AAAAAA !default;
 $--color-danger: darkred;
 
+// RESET
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  font-size: 14px;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+
 // MIXINS
 @mixin flexbox($di: column, $jc: center, $ai: center) {
   display: flex;
@@ -38,21 +55,4 @@ $--color-danger: darkred;
   left: $left;
   right: $right;
   bottom: $bottom;
-}
-
-// RESET
-* {
-  margin: 0;
-  border: 0;
-  padding: 0;
-  outline: 0;
-  box-shadow: none;
-  box-sizing: border-box;
-  text-decoration: none;
-}
-
-html {
-  font-size: 14px;
-  text-align: center;
-  font-family: 'Raleway', sans-serif;
 }

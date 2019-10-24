@@ -27,8 +27,8 @@
 
 <body>
   <!--[if IE]>
-      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
   <header class="header parallax parallax--header" id="header">
     <div class="parallax__dots">
       <h1 class="header__title">
@@ -159,7 +159,7 @@
     <section class="parallax parallax--gifts-list" id="gifts-list">
       <div class="section__content section__content--gifts-list parallax__dots">
         <h1 class="section__sub-title section__sub-title--light">Lista de Presentes</h1>
-        <a class="btn-light" href="#" data-modal="gifts-modal">Icasei</a>
+        <a class="btn-light" href="#" data-modal="gifts-modal" target="_blank ">Icasei</a>
       </div>
     </section>
 
@@ -174,6 +174,7 @@
             quiser. Entretanto, caso você faça questão de nos dar algo físico, fale conosco</p>
           <br>
           <p>Fique atento, disponibilizaremos nossa listinha virtual em breve.</p>
+          <!-- <a href="https://icasei.com/yargoecarol" target="_blank">Ir para lista de presentes - iCasei&nearr;</a> -->
         </div>
       </span>
     </div>
@@ -186,29 +187,35 @@
           conosco a união de dois corações &lsaquo;3
         </span>
         <form id="confirmation-form" name="presence-confirmation" class="confirmation-form section__article"
-          method="POST" action="#" data-modal="confirmation-modal" data-netlify="true" novalidate>
+          method="POST" action="#/" data-modal="confirmation-modal" data-netlify="true" novalidate>
           <div class="isInvalidAlert">
             <label for=""></label>
             <span>
-              <p id="invalid-empty-field" style="display: none;"><b>*</b>Campos obrigatórios.</p>
-              <p id="invalid-name-field" style="display: none;">- O <b>Nome</b> deve conter no mínimo duas palavras</p>
-              <p id="invalid-email-field" style="display: none;">- O <b>E-mail</b> deve conter um '@', um domínio e uma
-                extenção</p>
-              <p id="invalid-phone-field" style="display: none;">- O <b>Telefone</b> deve conter 10 ou 11 números e
-                incluir DDD</p>
+              <p id="invalid-empty-field" style="display: none;">
+                <b>*</b>Campos obrigatórios.
+              </p>
+              <p id="invalid-name-field" style="display: none;">
+                - O <b>Nome</b> deve conter no mínimo duas palavras
+              </p>
+              <p id="invalid-email-field" style="display: none;">
+                - O <b>E-mail</b> deve conter um '@', um domínio e uma extenção
+              </p>
+              <p id="invalid-phone-field" style="display: none;">
+                - O <b>Telefone</b> deve conter 10 ou 11 números e incluir DDD
+              </p>
             </span>
           </div>
           <div>
             <label for="name"><b>*</b>Nome Completo:</label>
-            <input name="name" type="text" id="form-name" placeholder="" value="">
+            <input name="name" type="text" id="form-name" placeholder="" value="" required>
           </div>
           <div>
             <label for="email"><b>*</b>E-mail:</label>
-            <input name="email" type="email" id="form-email" placeholder="" value="">
+            <input name="email" type="email" id="form-email" placeholder="" value="" required>
           </div>
           <div>
             <label for="phone"><b>*</b>Telefone:</label>
-            <input name="phone" type="tel" id="form-phone" placeholder="" value="">
+            <input name="phone" type="tel" id="form-phone" placeholder="" value="" required>
           </div>
           <div>
             <label for="message">Deixe-nos uma mensagem!</label>
