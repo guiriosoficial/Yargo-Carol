@@ -97,7 +97,7 @@ body {
   }
   &--ceremony-guests {
     background-image: url('/images/ceremony-guests.jpeg');
-    height: calc(75vh - 40px);
+    height: calc(80vh - 40px);
   }
   &--gifts-list {
     background-image: url('/images/gifts-list.jpeg');
@@ -179,10 +179,9 @@ form.confirmation-form {
       line-height: 18px;
       width: 400px;
     }
-  }
-  & > h4 {
-    @include fonts($--text-primary, 1.2em, 400, 1px);
-    margin-top: 60px;
+    h4 {
+      @include fonts($--text-primary, 1em, 600, 1px);
+    }
   }
   .isInvalidAlert {
     @include transition;
