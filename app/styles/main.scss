@@ -275,6 +275,10 @@ form.confirmation-form {
   @include transition('', ease-in-out);
 }
 
+.map-container {
+  display: flex;
+}
+
 .footer {
   @include flexbox(row, space-between, center);
   @include fonts($--white);

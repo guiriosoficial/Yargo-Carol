@@ -40,7 +40,7 @@ $(document).ready(function () {
 
   // The Masks
   $('#form-name').css('text-transform', 'capitalize')
-  
+
   var masks = ['(00) 00000-0000','(00) 0000-00009']
   var phoneMask = function (num) {
     return num.replace(/\D/g, '').length === 11 ? masks[0] : masks[1];
@@ -102,5 +102,11 @@ $(document).ready(function () {
       evt.preventDefault()
       $('#gifts-modal, #confirmation-modal').css({ display: 'none' })
     }
+  })
+
+  // The Suave Scroll
+  $('.scroll').click(function(evt) {
+    evt.preventDefault()
+    $('html, body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
   })
 })
