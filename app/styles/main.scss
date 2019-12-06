@@ -13,7 +13,7 @@ body {
     }
   }
   &__sub-title {
-    @include fonts($--white, 2em, 400, 1px);    
+    @include fonts($--white, 2em, 400, 1px);
   }
 }
 
@@ -90,7 +90,7 @@ body {
     background-image: url('/images/cover-header.jpeg');
     height: calc(100vh - 40px);
     filter: grayscale(100%);
-  } 
+  }
   &--history-ceremony {
     background-image: url('/images/history-ceremony.jpeg');
     height: calc(100vh - 40px);
@@ -196,7 +196,7 @@ form.confirmation-form {
       border: $--color-danger 1px solid !important;
       p { margin-top: 6px; display: block; }
       p:first-of-type { margin-top: 0; }
-      
+
     }
   }
 }

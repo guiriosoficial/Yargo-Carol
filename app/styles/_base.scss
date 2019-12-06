@@ -10,6 +10,7 @@ $--text-secondary: #AAAAAA !default;
 $--color-primary: #424242 !default;
 $--color-secondary: #AAAAAA !default;
 $--color-danger: darkred;
+$--color-link: royalblue;
 
 // RESET
 * {
@@ -26,6 +27,14 @@ html {
   font-size: 14px;
   text-align: center;
   font-family: 'Raleway', sans-serif;
+}
+
+a {
+  cursor: pointer;
+  color: $--color-link;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 // MIXINS
