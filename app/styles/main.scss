@@ -86,25 +86,27 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  height: calc(100vh - 40px);
   &--header {
     background-image: url('/images/cover-header.jpeg');
-    height: calc(100vh - 40px);
+    // height: calc(100vh - 40px);
     filter: grayscale(100%);
   }
   &--history-ceremony {
     background-image: url('/images/history-ceremony.jpeg');
-    height: calc(100vh - 40px);
+    // height: calc(100vh - 40px);
   }
   &--ceremony-guests {
     background-image: url('/images/ceremony-guests.jpeg');
-    height: calc(80vh - 40px);
+    // height: calc(100vh - 40px);
   }
   &--guests-seminar {
-    background-image: url('/images/guests-seminar2.jpeg');
-    height: calc(100vh - 40px);
+    background-image: url('/images/guests-seminar.jpeg');
+    // height: calc(100vh - 40px);
   }
   &--gifts-list {
     background-image: url('/images/gifts-list.jpeg');
+    height: auto;
   }
   &__dots {
     @include flexbox;
