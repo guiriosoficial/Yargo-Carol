@@ -54,6 +54,12 @@
       }
     }
   }
+
+  .modal-container {
+    &__modal-box {
+      width: 80%;
+    }
+  }
 }
 
 // ============================================= //
@@ -143,6 +149,21 @@
     }
     & > h4 {
       margin-top: 40px;
+    }
+  }
+
+  .modal-container {
+    &__modal-box {
+      margin: 20px;
+      padding: 20px;
+      width: calc(100% - 20px);
+      height: calc(100% - 20px);
+    }
+    &__content-box {
+      padding: 20px;
+    }
+    .close {
+      @include position(absolute, 40px, 40px, '', '');
     }
   }
 
