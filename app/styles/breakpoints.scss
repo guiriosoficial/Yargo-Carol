@@ -73,16 +73,23 @@
   .parallax {
     margin: 10px;
     &--header {
-      // background-image: url('/images/cover-header.jpeg');
+      background-image: url('/images/cover-header-small.jpeg');
       height: calc(100vh - 20px);
     }
     &--history-ceremony {
+      background-image: url('/images/history-ceremony-small.jpeg');
       height: calc(100vh - 20px);
     }
     &--ceremony-guests {
+      // background-image: url('/images/ceremony-guests-small.jpeg');
+      height: calc(100vh - 20px);
+    }
+    &--guests-seminar {
+      background-image: url('/images/guests-seminar-small.jpeg');
       height: calc(100vh - 20px);
     }
     &--gifts-list {
+      // background-image: url('/images/cover-header-small.jpeg');
       height: calc(100vh - 20px);
     }
   }
