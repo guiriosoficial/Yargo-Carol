@@ -88,6 +88,10 @@
       background-image: url('/images/guests-seminar-small.jpeg');
       height: calc(100vh - 20px);
     }
+    &--hosting {
+      background-image: url('/images/guests-seminar-small.jpeg');
+      // height: calc(60vh - 40px) !important;
+    }
     &--gifts-list {
       // background-image: url('/images/cover-header-small.jpeg');
       height: calc(100vh - 20px);
@@ -110,24 +114,24 @@
         max-width: 100%;
       }
       &--history, &--seminar {
-        width: 92%;
+        width: 92% !important;
         margin: 80px 0px;
       }
       &--ceremony {
-        width: 92%;
+        width: 92% !important;
         margin: 80px 0px;
       }
       &--tips {
-        width: 92%;
+        width: 92% !important;
         margin: 0px 0px 80px;
         padding: 80px 0px 0px;
       }
       &--special-guests {
-        max-width: 100%;
+        max-width: 100% !important;
         margin: 80px 0px;
       }
       &--confirmation-form {
-        width: 100%;
+        width: 100% !important;
         max-width: 100%;
         margin: 80px 0px;
       }

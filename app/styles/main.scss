@@ -101,8 +101,8 @@ body {
     background-image: url('/images/guests-seminar.jpeg');
   }
   &--hosting {
-    background-image: url('/images/gifts-list.jpeg');
-    height: calc(60vh - 40px) !important;
+    background-image: url('/images/guests-seminar.jpeg');
+    // height: calc(60vh - 40px) !important;
   }
   &--gifts-list {
     background-image: url('/images/gifts-list.jpeg');
