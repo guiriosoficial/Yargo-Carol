@@ -61,7 +61,7 @@ $(document).ready(function () {
   var email_input = $('#form-email')
   var phone_input = $('#form-phone')
 
-  function name_valid(name) { return name !== '' ? name_format.test(name.val()) : false }
+  function name_valid(name) { return true }
   function email_valid(email) { return email !== '' ? email_format.test(email.val()) : false }
   function phone_valid(phone) { return phone !== '' ? phone_format.test(phone.val()) : false }
 
@@ -70,7 +70,7 @@ $(document).ready(function () {
   $('#form-phone').keyup(function (evt) { !phone_valid(phone_input) ? phone_input.addClass('isInvalid') : phone_input.removeClass('isInvalid') && $('#invalid-phone-field').css({ display: 'none' }) })
 
   $('#confirmation-form').submit(function (evt) {
-    if (name_valid(name_input) && email_valid(email_input) && phone_valid(phone_input)) {
+    if (email_valid(email_input) && phone_valid(phone_input)) {
       $('#confirmation-modal').css({ display: 'flex' })
       $('.isInvalidAlert').css({ display: 'none' })
       name_input.removeClass('isInvalid')
@@ -79,8 +79,7 @@ $(document).ready(function () {
     } else {
       evt.preventDefault()
       $('.isInvalidAlert').css({ display: 'flex' })
-      name_input.val() === '' || email_input.val() === '' || phone_input.val() === '' ? $('#invalid-empty-field').css({ display: 'block' }) : $('#invalid-empty-field').css({ display: 'none' })
-      !name_valid(name_input) ? name_input.addClass('isInvalid') && $('#invalid-name-field').css({ display: 'block' }) : name_input.removeClass('isInvalid')
+      email_input.val() === '' || phone_input.val() === '' ? $('#invalid-empty-field').css({ display: 'block' }) : $('#invalid-empty-field').css({ display: 'none' })
       !email_valid(email_input) ? email_input.addClass('isInvalid') && $('#invalid-email-field').css({ display: 'block' }) : email_input.removeClass('isInvalid')
       !phone_valid(phone_input) ? phone_input.addClass('isInvalid') && $('#invalid-phone-field').css({ display: 'block' }) : phone_input.removeClass('isInvalid')
       return false
