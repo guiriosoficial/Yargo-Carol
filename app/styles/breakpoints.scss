@@ -29,29 +29,37 @@
         @include flexbox(column !important, center !important, center !important);
         max-width: 100%;
       }
-      &--history, &--seminar {
-        margin: 100px 0px;
-      }
-      &--ceremony {
+      &--ceremony,
+      &--host-option-left,
+      &--tips,
+      &--host-option-right {
         width: 700px;
         max-width: 100%;
-        margin: 100px 0px;
+      }
+      &--ceremony,
+      &--host-option-left {
         padding: 0;
       }
-      &--tips {
-        width: 700px;
-        max-width: 100%;
+      &--tips,
+      &--host-option-right {
         margin: 0px 0px 100px;
         padding: 100px 0px 0px;
-        border-left: none;
-        border-top: $--color-primary 1px solid;
       }
-      &--special-guests {
+      &--host-option-left, &--host-option-right {
+        margin: 40px 0 0 0;
+        padding: 20px 0 0 0;
+      }
+      &--history,
+      &--seminar,
+      &--ceremony,
+      &--special-guests,
+      &--accomodation {
         margin: 100px 0px;
       }
-      &--confirmation-form {
-        margin: 100px 0px;
-      }
+    }
+    .divisor {
+      border-left: none;
+      border-top: $--color-primary 1px solid;
     }
   }
 
@@ -113,27 +121,28 @@
         @include flexbox(center !important, center !important, center !important);
         max-width: 100%;
       }
-      &--history, &--seminar {
+      &--history,
+      &--seminar,
+      &--ceremony,
+      &--host-option-left {
         width: 92% !important;
         margin: 80px 0px;
       }
-      &--ceremony {
-        width: 92% !important;
-        margin: 80px 0px;
-      }
-      &--tips {
+      &--tips,
+      &--host-option-right {
         width: 92% !important;
         margin: 0px 0px 80px;
         padding: 80px 0px 0px;
       }
-      &--special-guests {
+      &--special-guests,
+      &--confirmation-form,
+      &--accomodation {
         max-width: 100% !important;
         margin: 80px 0px;
       }
-      &--confirmation-form {
+      &--confirmation-form,
+      &--accomodation {
         width: 100% !important;
-        max-width: 100%;
-        margin: 80px 0px;
       }
     }
   }

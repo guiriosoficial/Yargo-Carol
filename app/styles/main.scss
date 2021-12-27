@@ -25,11 +25,13 @@ body {
     @include fonts($--text-secondary, 1em, 700, 2px);
     text-transform: uppercase;
     line-height: 30px;
+    &--sub { margin-top: 10px; }
   }
   &__sub-title {
     @include fonts($--text-primary, 3.45em, 500, 6px);
     text-transform: uppercase;
     line-height: 56px;
+    &--non-sub { margin-top: 0; }
     &--light {
       color: $--white !important;
       letter-spacing: 10px !important;
@@ -39,6 +41,9 @@ body {
     @include fonts;
     line-height: 30px;
     margin-top: 26px;
+    &--short {
+      max-width: 660px;
+    }
   }
   &__content {
     @include flexbox;
@@ -47,36 +52,30 @@ body {
       max-width: 100%;
     }
     &--history, &--seminar {
-      width: 660px;
-      max-width: 90%;
-      margin: 160px 0px;
+      @include space-size;
     }
-    &--ceremony {
-      width: 660px;
-      max-width: 100%;
-      margin: 160px 0px;
-      padding: 0 80px;
-    }
-    &--tips {
-      width: 660px;
-      max-width: 100%;
-      margin: 160px 0px;
-      padding: 0 80px;
-      border-left: $--color-primary 1px solid;
+    &--ceremony, &--tips {
+      @include space-size($max-width: 100%, $padding: 0 80px);
     }
     &--special-guests {
-      width: ((60px + 20px) + 180px + (30px * 2)) * 3 !important;
-      max-width: 100%;
-      margin: 160px 0px;
+      @include space-size($width: ((60px + 20px) + 180px + (30px * 2)) * 3 !important, $max-width: 100%);
     }
     &--gifts-list {
       padding: 160px 0;
     }
-    &--confirmation-form {
-      width: 800px;
-      max-width: 90%;
-      margin: 160px 0px;
+    &--accomodation {
+      @include space-size($width: 100%);
     }
+    &--host-option-left,
+    &--host-option-right {
+      @include space-size($max-width: 100%, $margin: 40px 0 0 0, $padding: 0 80px);
+    }
+    &--confirmation-form {
+      @include space-size($width: 800px);
+    }
+  }
+  .divisor {
+    border-left: $--color-primary 1px solid;
   }
 }
 
