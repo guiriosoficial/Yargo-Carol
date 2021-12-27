@@ -1,6 +1,7 @@
 // generated on 2019-07-19 using generator-webapp 4.0.0-6
 const { src, dest, watch, series, parallel, lastRun } = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
+const sass = require('gulp-sass')(require('sass'));
 const browserSync = require('browser-sync');
 const del = require('del');
 const autoprefixer = require('autoprefixer');
@@ -20,11 +21,11 @@ function styles() {
   return src('app/styles/*.scss')
     .pipe($.plumber())
     .pipe($.if(!isProd, $.sourcemaps.init()))
-    .pipe($.sass.sync({
+    .pipe(sass.sync({
       outputStyle: 'expanded',
       precision: 10,
       includePaths: ['.']
-    }).on('error', $.sass.logError))
+    }).on('error', sass.logError))
     .pipe($.postcss([
       autoprefixer()
     ]))
