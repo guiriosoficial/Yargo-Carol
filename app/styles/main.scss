@@ -256,7 +256,7 @@ form.confirmation-form {
     @include flexbox(column, center, center);
     @include position;
     z-index: 999;
-    padding: 32px;
+    padding: 24px;
     width: 50%;
     text-align: left;
     background: $--white;
@@ -269,7 +269,7 @@ form.confirmation-form {
   }
   .close {
     @include fonts($--text-secondary, 1.2em, 400, 0px);
-    @include position(absolute, 56px, 56px, '', '');
+    @include position(absolute, 48px, 48px, '', '');
     font-weight: bold;
   }
 }

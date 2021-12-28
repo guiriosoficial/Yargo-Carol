@@ -53,7 +53,7 @@ $(document).ready(function () {
   $('#form-phone').mask(phoneMask, options);
 
   // The Validators
-  var name_format = /^[A-ZÀ-Ÿ][A-zÀ-ÿ']+\s([A-zÀ-ÿ']\s?)*[A-ZÀ-Ÿ][A-zÀ-ÿ']+$/
+  var name_format = /[A-z]{2,120}/
   var email_format = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
   var phone_format = /^(\(0?([1-9a-zA-Z][0-9a-zA-Z])?[1-9]\d\) ?|0?([1-9a-zA-Z][0-9a-zA-Z])?[1-9]\d[ .-]?)?([9,8,7]|[9,8,7][ .-])?[2-9]\d{3}[ .-]?\d{4}$/
 
@@ -61,16 +61,16 @@ $(document).ready(function () {
   var email_input = $('#form-email')
   var phone_input = $('#form-phone')
 
-  function name_valid(name) { return true }
-  function email_valid(email) { return email !== '' ? email_format.test(email.val()) : false }
-  function phone_valid(phone) { return phone !== '' ? phone_format.test(phone.val()) : false }
+  function name_valid(name) { return name.val() !== '' ? name_format.test(name.val().normalize('NFD')) && name.val().split(' ').length > 1 : false }
+  function email_valid(email) { return email.val() !== '' ? email_format.test(email.val()) : false }
+  function phone_valid(phone) { return phone.val() !== '' ? phone_format.test(phone.val()) : false }
 
   $('#form-name').keyup(function (evt) { !name_valid(name_input) ? name_input.addClass('isInvalid') : name_input.removeClass('isInvalid') && $('#invalid-name-field').css({ display: 'none' }) })
   $('#form-email').keyup(function (evt) { !email_valid(email_input) ? email_input.addClass('isInvalid') : email_input.removeClass('isInvalid') && $('#invalid-email-field').css({ display: 'none' }) })
   $('#form-phone').keyup(function (evt) { !phone_valid(phone_input) ? phone_input.addClass('isInvalid') : phone_input.removeClass('isInvalid') && $('#invalid-phone-field').css({ display: 'none' }) })
 
   $('#confirmation-form').submit(function (evt) {
-    if (email_valid(email_input) && phone_valid(phone_input)) {
+    if (name_valid(name_input) && email_valid(email_input) && phone_valid(phone_input)) {
       $('#confirmation-modal').css({ display: 'flex' })
       $('.isInvalidAlert').css({ display: 'none' })
       name_input.removeClass('isInvalid')
@@ -79,7 +79,8 @@ $(document).ready(function () {
     } else {
       evt.preventDefault()
       $('.isInvalidAlert').css({ display: 'flex' })
-      email_input.val() === '' || phone_input.val() === '' ? $('#invalid-empty-field').css({ display: 'block' }) : $('#invalid-empty-field').css({ display: 'none' })
+      name_input.val() === '' || email_input.val() === '' || phone_input.val() === '' ? $('#invalid-empty-field').css({ display: 'block' }) : $('#invalid-empty-field').css({ display: 'none' })
+      !name_valid(name_input) ? name_input.addClass('isInvalid') && $('#invalid-name-field').css({ display: 'block' }) : name_input.removeClass('isInvalid')
       !email_valid(email_input) ? email_input.addClass('isInvalid') && $('#invalid-email-field').css({ display: 'block' }) : email_input.removeClass('isInvalid')
       !phone_valid(phone_input) ? phone_input.addClass('isInvalid') && $('#invalid-phone-field').css({ display: 'block' }) : phone_input.removeClass('isInvalid')
       return false
@@ -105,7 +106,8 @@ $(document).ready(function () {
 
   // The Suave Scroll
   $('.scroll').click(function(evt) {
+    var scrollSpeed = 1000
     evt.preventDefault()
-    $('html, body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+    $('html, body').animate({ scrollTop: $(this.hash).offset().top }, scrollSpeed);
   })
 })
