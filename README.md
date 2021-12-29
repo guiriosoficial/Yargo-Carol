@@ -4,7 +4,7 @@ A responsive wedding website template with a minimalists and rustics design incl
 It was made using just HTML, CSS (SASS) and Javascript (jQuery), and you can run it by following the instructions in [Project Setup](#project-setup), and personalize using the [Customization Tips](#customization-tips).  
 
 ## Project Setup
-- **Requirements:** `Node 14` and `NPM 8` installed
+- **Requirements:** `Node` (>=14.18.2) and `NPM` (>=6.14.15) installed
 - **Install Dependencies:** `npm install`
 - **Start Development Server:** `npm start`
 - **Compiles For Production:** `npm run build`
