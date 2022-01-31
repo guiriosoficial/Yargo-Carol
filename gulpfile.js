@@ -1,21 +1,18 @@
 // generated on 2019-07-19 using generator-webapp 4.0.0-6
-const { src, dest, watch, series, parallel, lastRun } = require('gulp');
-const gulpLoadPlugins = require('gulp-load-plugins');
-const sass = require('gulp-sass')(require('sass'));
-const browserSync = require('browser-sync');
-const del = require('del');
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
-const { argv } = require('yargs');
+const { src, dest, watch, series, parallel, lastRun } = require('gulp')
+const $ = require('gulp-load-plugins')()
+const sass = require('gulp-sass')(require('sass'))
+const server = require('browser-sync').create()
+const del = require('del')
+const autoprefixer = require('autoprefixer')
+const cssnano = require('cssnano')
+const { argv } = require('yargs')
 
-const $ = gulpLoadPlugins();
-const server = browserSync.create();
+const port = argv.port || 9000
 
-const port = argv.port || 9000;
-
-const isProd = process.env.NODE_ENV === 'production';
-const isTest = process.env.NODE_ENV === 'test';
-const isDev = !isProd && !isTest;
+const isProd = process.env.NODE_ENV === 'production'
+const isTest = process.env.NODE_ENV === 'test'
+const isDev = !isProd && !isTest
 
 function styles() {
   return src('app/styles/*.scss')
@@ -31,8 +28,8 @@ function styles() {
     ]))
     .pipe($.if(!isProd, $.sourcemaps.write()))
     .pipe(dest('.tmp/styles'))
-    .pipe(server.reload({stream: true}));
-};
+    .pipe(server.reload({stream: true}))
+}
 
 function scripts() {
   return src('app/scripts/**/*.js')
@@ -41,8 +38,8 @@ function scripts() {
     .pipe($.babel())
     .pipe($.if(!isProd, $.sourcemaps.write('.')))
     .pipe(dest('.tmp/scripts'))
-    .pipe(server.reload({stream: true}));
-};
+    .pipe(server.reload({stream: true}))
+}
 
 
 const lintBase = files => {
@@ -50,16 +47,16 @@ const lintBase = files => {
     .pipe($.eslint({ fix: true }))
     .pipe(server.reload({stream: true, once: true}))
     .pipe($.eslint.format())
-    .pipe($.if(!server.active, $.eslint.failAfterError()));
+    .pipe($.if(!server.active, $.eslint.failAfterError()))
 }
 function lint() {
   return lintBase('app/scripts/**/*.js')
-    .pipe(dest('app/scripts'));
-};
+    .pipe(dest('app/scripts'))
+}
 function lintTest() {
   return lintBase('test/spec/**/*.js')
-    .pipe(dest('test/spec'));
-};
+    .pipe(dest('test/spec'))
+}
 
 function html() {
   return src('app/*.html')
@@ -76,19 +73,19 @@ function html() {
       removeScriptTypeAttributes: true,
       removeStyleLinkTypeAttributes: true
     })))
-    .pipe(dest('dist'));
+    .pipe(dest('dist'))
 }
 
 function images() {
   return src('app/images/**/*', { since: lastRun(images) })
     .pipe($.imagemin())
-    .pipe(dest('dist/images'));
-};
+    .pipe(dest('dist/images'))
+}
 
 function fonts() {
   return src('app/fonts/**/*.{eot,svg,ttf,woff,woff2}')
-    .pipe($.if(!isProd, dest('.tmp/fonts'), dest('dist/fonts')));
-};
+    .pipe($.if(!isProd, dest('.tmp/fonts'), dest('dist/fonts')))
+}
 
 function extras() {
   return src([
@@ -96,8 +93,8 @@ function extras() {
     '!app/*.html'
   ], {
     dot: true
-  }).pipe(dest('dist'));
-};
+  }).pipe(dest('dist'))
+}
 
 function clean() {
   return del(['.tmp', 'dist'])
@@ -105,7 +102,7 @@ function clean() {
 
 function measureSize() {
   return src('dist/**/*')
-    .pipe($.size({title: 'build', gzip: true}));
+    .pipe($.size({title: 'build', gzip: true}))
 }
 
 const build = series(
@@ -118,7 +115,7 @@ const build = series(
     extras
   ),
   measureSize
-);
+)
 
 function startAppServer() {
   server.init({
@@ -130,17 +127,17 @@ function startAppServer() {
         '/node_modules': 'node_modules'
       }
     }
-  });
+  })
 
   watch([
     'app/*.html',
     'app/images/**/*',
     '.tmp/fonts/**/*'
-  ]).on('change', server.reload);
+  ]).on('change', server.reload)
 
-  watch('app/styles/**/*.scss', styles);
-  watch('app/scripts/**/*.js', scripts);
-  watch('app/fonts/**/*', fonts);
+  watch('app/styles/**/*.scss', styles)
+  watch('app/scripts/**/*.js', scripts)
+  watch('app/fonts/**/*', fonts)
 }
 
 function startTestServer() {
@@ -155,11 +152,11 @@ function startTestServer() {
         '/node_modules': 'node_modules'
       }
     }
-  });
+  })
 
-  watch('app/scripts/**/*.js', scripts);
-  watch(['test/spec/**/*.js', 'test/index.html']).on('change', server.reload);
-  watch('test/spec/**/*.js', lintTest);
+  watch('app/scripts/**/*.js', scripts)
+  watch(['test/spec/**/*.js', 'test/index.html']).on('change', server.reload)
+  watch('test/spec/**/*.js', lintTest)
 }
 
 function startDistServer() {
@@ -172,18 +169,18 @@ function startDistServer() {
         '/node_modules': 'node_modules'
       }
     }
-  });
+  })
 }
 
-let serve;
+let serve
 if (isDev) {
-  serve = series(clean, parallel(styles, scripts, fonts), startAppServer);
+  serve = series(clean, parallel(styles, scripts, fonts), startAppServer)
 } else if (isTest) {
-  serve = series(clean, scripts, startTestServer);
+  serve = series(clean, scripts, startTestServer)
 } else if (isProd) {
-  serve = series(build, startDistServer);
+  serve = series(build, startDistServer)
 }
 
-exports.serve = serve;
-exports.build = build;
-exports.default = build;
+exports.serve = serve
+exports.build = build
+exports.default = build
