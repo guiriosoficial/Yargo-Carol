@@ -98,21 +98,14 @@ function clean() {
   return del(['.tmp', 'dist'])
 }
 
-function measureSize() {
-  return src('dist/**/*')
-    .pipe($.size({title: 'build', gzip: true}))
-}
-
 const build = series(
-  clean,
   parallel(
     lint,
     series(parallel(styles, scripts), html),
     images,
     fonts,
     extras
-  ),
-  measureSize
+  )
 )
 
 function startAppServer() {
@@ -176,7 +169,7 @@ if (isDev) {
 } else if (isTest) {
   serve = series(clean, scripts, startTestServer)
 } else if (isProd) {
-  serve = series(build, startDistServer)
+  serve = series(clean, build, startDistServer)
 }
 
 exports.serve = serve
