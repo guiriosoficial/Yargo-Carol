@@ -6,10 +6,8 @@ const server = require('browser-sync').create()
 const del = require('del')
 const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
-const { argv } = require('yargs')
 
-const port = argv.port || 9000
-
+const port = 9000
 const isProd = process.env.NODE_ENV === 'production'
 const isTest = process.env.NODE_ENV === 'test'
 const isDev = !isProd && !isTest
