@@ -81,37 +81,37 @@ body {
 
 .parallax {
   margin: 20px;
-  // background-position: center;
-  background-attachment: fixed;
+  background-position: center;
+  //background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   height: calc(100vh - 40px);
   &--header {
-    background-image: url('/images/cover-header.jpeg');
+    background-image: url('../images/cover-header.jpeg');
     filter: grayscale(100%);
   }
   &--history-ceremony {
-    background-image: url('/images/history-ceremony.jpeg');
+    background-image: url('../images/history-ceremony.jpeg');
   }
   &--ceremony-guests {
-    background-image: url('/images/ceremony-guests.jpeg');
+    background-image: url('../images/ceremony-guests.jpeg');
   }
   &--guests-seminar {
-    background-image: url('/images/guests-seminar.jpeg');
+    background-image: url('../images/guests-seminar.jpeg');
   }
   &--hosting {
-    background-image: url('/images/guests-seminar.jpeg');
+    background-image: url('../images/guests-seminar.jpeg');
     // height: calc(60vh - 40px) !important;
   }
   &--gifts-list {
-    background-image: url('/images/gifts-list.jpeg');
+    background-image: url('../images/gifts-list.jpeg');
     height: auto;
   }
   &__dots {
     @include flexbox;
     width: 100%;
     height: 100%;
-    background-image: url('/images/bg-single-dotted.gif');
+    background-image: url('../images/bg-single-dotted.gif');
   }
 }
 
@@ -275,7 +275,7 @@ form.confirmation-form {
 }
 
 .flyin {
-  opacity: 0;
+  opacity: 1;
   @include transition('', ease-in-out);
 }
 
