@@ -1,19 +1,21 @@
-@import 'base';
+@use 'sass:color' as *;
+@use 'base' as *;
+@use 'breakpoints';
 
 body {
   width: 100%;
-  background: $--background;
+  background: $background;
 }
 
 .header {
   &__title {
-    @include fonts($--white, 5em, 700, 2px);
+    @include fonts($white, 5em, 700, 2px);
     > span {
       font-size: 1.2em;
     }
   }
   &__sub-title {
-    @include fonts($--white, 2em, 400, 1px);
+    @include fonts($white, 2em, 400, 1px);
   }
 }
 
@@ -22,18 +24,18 @@ body {
   min-height: 80vh;
   margin: 20px;
   &__title {
-    @include fonts($--text-secondary, 1em, 700, 2px);
+    @include fonts($text-secondary, 1em, 700, 2px);
     text-transform: uppercase;
     line-height: 30px;
     &--sub { margin-top: 10px; }
   }
   &__sub-title {
-    @include fonts($--text-primary, 3.45em, 500, 6px);
+    @include fonts($text-primary, 3.45em, 500, 6px);
     text-transform: uppercase;
     line-height: 56px;
     &--non-sub { margin-top: 0; }
     &--light {
-      color: $--white !important;
+      color: $white !important;
       letter-spacing: 10px !important;
     }
   }
@@ -75,7 +77,7 @@ body {
     }
   }
   .divisor {
-    border-left: $--color-primary 1px solid;
+    border-left: $color-primary 1px solid;
   }
 }
 
@@ -118,7 +120,7 @@ body {
 .special-guests {
   @include flexbox(row);
   flex-wrap: wrap;
-  & > div {
+  & > figure {
     @include flexbox(row, flex-start, center);
     width: 260px;
     height: 60px;
@@ -130,7 +132,7 @@ body {
       filter: grayscale(40%);
       width: 60px;
       height: 60px;
-      background: $--color-primary;
+      background: $color-primary;
       margin-right: 20px;
       border-radius: 50%;
       min-width: 60px;
@@ -141,7 +143,7 @@ body {
       @include transition(500ms !important);
     }
     h4 {
-      @include fonts($--text-primary, 1.4em, 500, 2px);
+      @include fonts($text-primary, 1.4em, 500, 2px);
       text-transform: uppercase;
       text-align: left;
       user-select: none;
@@ -164,40 +166,40 @@ form.confirmation-form {
     }
     input, textarea {
       font-family: 'Raleway', sans-serif;
-      border: $--color-secondary 1px solid;
+      border: $color-secondary 1px solid;
       padding: 14px;
       width: 400px;
       @include transition;
       &:hover, &:focus {
-        border: $--color-primary 1px solid;
+        border: $color-primary 1px solid;
       }
     }
     .isInvalid {
-      border: $--color-danger 1px solid !important;
+      border: $color-danger 1px solid !important;
       &:hover, &:focus {
-        border: $--color-danger 1px solid !important;
+        border: $color-danger 1px solid !important;
       }
     }
     span {
-      @include fonts($--color-danger);
+      @include fonts($color-danger);
       text-align: justify;
       line-height: 18px;
       width: 400px;
     }
     h4 {
-      @include fonts($--text-primary, 1em, 600, 1px);
+      @include fonts($text-primary, 1em, 600, 1px);
     }
   }
   .isInvalidAlert {
     @include transition;
     display: none;
     > span {
-      @include fonts($--color-danger, 1em, 400, 1px);
+      @include fonts($color-danger, 1em, 400, 1px);
       line-height: 18px;
       padding: 14px;
       text-align: left;
-      background-color: mix($--color-danger, $--white, 10%);
-      border: $--color-danger 1px solid !important;
+      background-color: mix($color-danger, $white, 10%);
+      border: $color-danger 1px solid !important;
       p { margin-top: 6px; display: block; }
       p:first-of-type { margin-top: 0; }
 
@@ -206,33 +208,33 @@ form.confirmation-form {
 }
 
 .btn-light {
-  @include fonts($--text-primary, 1.2em, 600, 2px);
+  @include fonts($text-primary, 1.2em, 600, 2px);
   text-transform: uppercase;
   text-decoration: none;
-  background-color: $--white;
+  background-color: $white;
   border: transparent 2px solid;
   padding: 20px 40px;
   margin-top: 60px;
   @include transition;
   &:hover {
-    color: $--white;
-    border: $--white 2px solid;
+    color: $white;
+    border: $white 2px solid;
     background-color: transparent;
   }
 }
 
 .btn-dark {
-  @include fonts($--white, 1.2em, 400, 2px);
+  @include fonts($white, 1.2em, 400, 2px);
   text-transform: uppercase;
   text-decoration: none;
-  background-color: $--color-primary;
+  background-color: $color-primary;
   border: transparent 1px solid;
   padding: 20px 40px;
   cursor: pointer;
   @include transition;
   &:hover {
-    color: $--text-primary;
-    border: $--color-primary 1px solid;
+    color: $text-primary;
+    border: $color-primary 1px solid;
     background-color: transparent;
   }
 }
@@ -259,16 +261,16 @@ form.confirmation-form {
     padding: 24px;
     width: 50%;
     text-align: left;
-    background: $--white;
+    background: $white;
   }
   &__content-box {
     width: 100%;
     height: 100%;
-    border: solid $--color-primary 2px;
+    border: solid $color-primary 2px;
     padding: 24px;
   }
   .close {
-    @include fonts($--text-secondary, 1.2em, 400, 0px);
+    @include fonts($text-secondary, 1.2em, 400, 0px);
     @include position(absolute, 48px, 48px, '', '');
     font-weight: bold;
   }
@@ -285,14 +287,12 @@ form.confirmation-form {
 
 .footer {
   @include flexbox(row, space-between, center);
-  @include fonts($--white);
-  background: $--color-primary;
+  @include fonts($white);
+  background: $color-primary;
   padding: 0 20px;
   height: 40px;
   a {
-    @include fonts($--white);
+    @include fonts($white);
     text-decoration: underline;
   }
 }
-
-@import 'breakpoints.scss';

@@ -2,15 +2,15 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
 
 // VARIABLES
-$--white: #FFF !default;
-$--black: #000 !default;
-$--background: #FAFAFA !default;
-$--text-primary: #424242 !default;
-$--text-secondary: #AAAAAA !default;
-$--color-primary: #424242 !default;
-$--color-secondary: #AAAAAA !default;
-$--color-danger: darkred;
-$--color-link: royalblue;
+$white: #FFF !default;
+$black: #000 !default;
+$background: #FAFAFA !default;
+$text-primary: #424242 !default;
+$text-secondary: #AAAAAA !default;
+$color-primary: #424242 !default;
+$color-secondary: #AAAAAA !default;
+$color-danger: darkred;
+$color-link: royalblue;
 
 // RESET
 * {
@@ -32,7 +32,7 @@ html {
 
 a {
   cursor: pointer;
-  color: $--color-link;
+  color: $color-link;
   &:hover {
     text-decoration: underline;
   }
@@ -46,7 +46,7 @@ a {
   flex-direction: $di;
 }
 
-@mixin fonts($color: $--text-primary, $size: 1em, $weight: 400, $spacing: 1px) {
+@mixin fonts($color: $text-primary, $size: 1em, $weight: 400, $spacing: 1px) {
   color: $color;
   font-size: $size;
   font-weight: $weight;

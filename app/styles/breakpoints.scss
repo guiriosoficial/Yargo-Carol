@@ -1,4 +1,4 @@
-@import 'base';
+@use 'base' as *;
 
 // ============================================= //
 // =================== LARGE =================== //
@@ -42,8 +42,8 @@
       }
       &--tips,
       &--host-option-right {
-        margin: 0px 0px 100px;
-        padding: 100px 0px 0px;
+        margin: 0 0 100px;
+        padding: 100px 0 0;
       }
       &--host-option-left, &--host-option-right {
         margin: 40px 0 0 0;
@@ -54,12 +54,12 @@
       &--ceremony,
       &--special-guests,
       &--accomodation {
-        margin: 100px 0px;
+        margin: 100px 0;
       }
     }
     .divisor {
       border-left: none;
-      border-top: $--color-primary 1px solid;
+      border-top: $color-primary 1px solid;
     }
   }
 
@@ -108,7 +108,7 @@
 
   .section {
     &__sub-title {
-      @include fonts($--text-primary, 2.8em, 500, 6px);
+      @include fonts($text-primary, 2.8em, 500, 6px);
       text-transform: uppercase;
       line-height: 56px;
       &--light {
@@ -148,7 +148,7 @@
   }
 
   .special-guests {
-    & > div {
+    & > figure {
       max-width: 100%;
       margin: 30px 20px;
     }
