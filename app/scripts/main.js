@@ -1,153 +1,209 @@
-$(document).ready(function () {
-  // Carrega as configurações (fallback para valores padrão se config.js não estiver carregado)
-  const config = window.SiteConfig
+document.addEventListener('DOMContentLoaded', () => {
+  const config = window.SiteConfig || {}
 
-  // Verification if the object is in viewport
-  function isInViewport(node) {
-    const rect = node.getBoundingClientRect();
+  /* =========================
+     Utils
+  ========================= */
+  const qs = (s, c = document) => c.querySelector(s)
+  const qsa = (s, c = document) => [...c.querySelectorAll(s)]
+
+  function isInViewport(el) {
+    const rect = el.getBoundingClientRect()
     return (
-      (rect.height > 0 || rect.width > 0) &&
-      rect.bottom >= 0 &&
-      rect.right >= 0 &&
-      rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.left <= (window.innerWidth || document.documentElement.clientWidth)
+        rect.bottom >= 0 &&
+        rect.right >= 0 &&
+        rect.top <= window.innerHeight &&
+        rect.left <= window.innerWidth
     )
   }
 
-  $(window).scroll(function () {
-    const scroll = $(this).scrollTop()
-    // The Parallax
-    if (config.effects.parallax.enabled) {
-      const parallax = $('.parallax')
-      // parallax.css('background-position', 'top left')
-      parallax.css('background-attachment', 'fixed')
+  /* =========================
+     Scroll Effects
+  ========================= */
+  let ticking = false
 
-      parallax.each(function () {
-        const objPos = $(this).offset().top
-        const objHeight = $(this).height()
-        if (isInViewport(this)) {
-          const parallaxSpeed = config.effects.parallax.speed
-          const ratio = Math.round(((scroll - objPos) / objHeight) * parallaxSpeed)
-          $(this).css('background-position', 'center ' + parseInt(-(ratio * 2)) + 'px')
+  function onScroll() {
+    const scrollTop = window.scrollY
+
+    /* Parallax */
+    if (config.effects?.parallax?.enabled) {
+      qsa('.parallax').forEach(el => {
+        el.style.backgroundAttachment = 'fixed'
+
+        if (isInViewport(el)) {
+          const speed = config.effects.parallax.speed
+          const offsetTop = el.offsetTop
+          const height = el.offsetHeight
+          const ratio = ((scrollTop - offsetTop) / height) * speed
+          el.style.backgroundPosition = `center ${-(ratio * 2)}px`
         }
       })
     }
-    // The Fly-Ins
-    if (config.effects.flyIn.enabled) {
-      const flyin = $('.flyin')
-      flyin.css('opacity', '0')
 
-      flyin.each(function () {
-        const flyinTiming = config.effects.flyIn.timing;
-        const windowHeight = $(window).height()
-        const objHeight = $(this).height()
-        const objBottom = $(this).offset().top + $(this).outerHeight()
-        const windowBottom = scroll + windowHeight
-        const diff = objBottom - (objHeight / flyinTiming)
+    /* Fly-in */
+    if (config.effects?.flyIn?.enabled) {
+      const windowBottom = scrollTop + window.innerHeight
+      const timing = config.effects.flyIn.timing
+      const speed = config.effects.flyIn.speed
+
+      qsa('.flyin').forEach(el => {
+        el.style.opacity = '0'
+
+        const elBottom = el.offsetTop + el.offsetHeight
+        const diff = elBottom - (el.offsetHeight / timing)
+
         if (windowBottom > diff) {
-          const flyinSpeed = config.effects.flyIn.speed
-          $(this).animate({ opacity: '1' }, flyinSpeed)
+          el.style.transition = `opacity ${speed}ms ease`
+          el.style.opacity = '1'
         }
       })
+    }
+
+    ticking = false
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(onScroll)
+      ticking = true
     }
   })
 
-  const name_input = $('#form-name')
-  const email_input = $('#form-email')
-  const phone_input = $('#form-phone')
+  /* =========================
+     Form Elements
+  ========================= */
+  const nameInput  = qs('#form-name')
+  const emailInput = qs('#form-email')
+  const phoneInput = qs('#form-phone')
+  const form       = qs('#confirmation-form')
 
-  // The Masks
-  if (config.form.masks.name.enabled && name_input.length) {
-    if (config.form.masks.name.capitalize) {
-      name_input.css('text-transform', 'capitalize');
-    }
+  /* =========================
+     Masks
+  ========================= */
+  if (config.form?.masks?.name?.enabled && config.form.masks.name.capitalize && nameInput) {
+    nameInput.style.textTransform = 'capitalize'
   }
 
-  if (config.form.masks.phone.enabled && phone_input.length) {
-    const masks = config.form.masks.phone.patterns
-    const phoneMask = function (num) {
-      return num.replace(/\D/g, '').length === 11 ? masks[0] : masks[1]
-    }
-    const options = {
-      onKeyPress: function (val, evt, field, options) {
-        field.mask(phoneMask.apply({}, arguments), options)
+  if (config.form?.masks?.phone?.enabled && phoneInput) {
+    phoneInput.addEventListener('input', e => {
+      let v = e.target.value.replace(/\D/g, '')
+      if (v.length > 11) v = v.slice(0, 11)
+
+      if (v.length === 11) {
+        v = v.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3')
+      } else if (v.length >= 7) {
+        v = v.replace(/(\d{2})(\d{4})(\d+)/, '($1) $2-$3')
+      } else if (v.length >= 3) {
+        v = v.replace(/(\d{2})(\d+)/, '($1) $2')
       }
-    }
-    phone_input.mask(phoneMask, options);
+
+      e.target.value = v
+    })
   }
 
-  // The Validators (apenas se a validação estiver habilitada)
-  if (config.form.validation.enabled) {
-    const name_format = config.form.validators.name;
-    const email_format = config.form.validators.email;
-    const phone_format = config.form.validators.phone;
+  /* =========================
+     Validators
+  ========================= */
+  if (config.form?.validation?.enabled) {
+    const nameRegex  = config.form.validators.name
+    const emailRegex = config.form.validators.email
+    const phoneRegex = config.form.validators.phone
 
-    function name_valid(name) {
-      return name.val() !== '' ? name_format.test(name.val().normalize('NFD')) && name.val().split(' ').length > 1 : false;
-    }
-    function email_valid(email) {
-      return email.val() !== '' ? email_format.test(email.val()) : false;
-    }
-    function phone_valid(phone) {
-      return phone.val() !== '' ? phone_format.test(phone.val()) : false;
-    }
+    const nameValid = () =>
+        nameInput.value &&
+        nameRegex.test(nameInput.value.normalize('NFD')) &&
+        nameInput.value.trim().split(' ').length > 1
 
-    // Event listeners para validação em tempo real
-    name_input.keyup(function (_evt) {
-      !name_valid(name_input) ? name_input.addClass('isInvalid') : name_input.removeClass('isInvalid') && $('#invalid-name-field').css({ display: 'none' });
-    });
-    email_input.keyup(function (_evt) {
-      !email_valid(email_input) ? email_input.addClass('isInvalid') : email_input.removeClass('isInvalid') && $('#invalid-email-field').css({ display: 'none' });
-    });
-    phone_input.keyup(function (_evt) {
-      !phone_valid(phone_input) ? phone_input.addClass('isInvalid') : phone_input.removeClass('isInvalid') && $('#invalid-phone-field').css({ display: 'none' });
-    });
+    const emailValid = () =>
+        emailInput.value && emailRegex.test(emailInput.value)
 
-    // Validação no envio do formulário
-    $('#confirmation-form').submit(function (evt) {
-      if (name_valid(name_input) && email_valid(email_input) && phone_valid(phone_input)) {
-        if (config.modals.confirmation.enabled) {
-          $('#confirmation-modal').css({ display: 'flex' })
+    const phoneValid = () =>
+        phoneInput.value && phoneRegex.test(phoneInput.value)
+
+    const liveValidation = (input, validator, errorId) => {
+      input.addEventListener('keyup', () => {
+        if (!validator()) {
+          input.classList.add('isInvalid')
+        } else {
+          input.classList.remove('isInvalid')
+          qs(errorId).style.display = 'none'
         }
-        $('.isInvalidAlert').css({ display: 'none' })
-        name_input.removeClass('isInvalid')
-        email_input.removeClass('isInvalid')
-        phone_input.removeClass('isInvalid')
+      })
+    }
+
+    liveValidation(nameInput, nameValid, '#invalid-name-field')
+    liveValidation(emailInput, emailValid, '#invalid-email-field')
+    liveValidation(phoneInput, phoneValid, '#invalid-phone-field')
+
+    form.addEventListener('submit', evt => {
+      if (nameValid() && emailValid() && phoneValid()) {
+        qs('.isInvalidAlert').style.display = 'none'
+        qsa('.isInvalid').forEach(el => el.classList.remove('isInvalid'))
+
+        if (config.modals?.confirmation?.enabled) {
+          qs('#confirmation-modal').style.display = 'flex'
+        }
       } else {
         evt.preventDefault()
-        $('.isInvalidAlert').css({ display: 'flex' })
-        name_input.val() === '' || email_input.val() === '' || phone_input.val() === '' ? $('#invalid-empty-field').css({ display: 'block' }) : $('#invalid-empty-field').css({ display: 'none' })
-        !name_valid(name_input) ? name_input.addClass('isInvalid') && $('#invalid-name-field').css({ display: 'block' }) : name_input.removeClass('isInvalid')
-        !email_valid(email_input) ? email_input.addClass('isInvalid') && $('#invalid-email-field').css({ display: 'block' }) : email_input.removeClass('isInvalid')
-        !phone_valid(phone_input) ? phone_input.addClass('isInvalid') && $('#invalid-phone-field').css({ display: 'block' }) : phone_input.removeClass('isInvalid')
-        return false
+        qs('.isInvalidAlert').style.display = 'flex'
+
+        nameInput.value ? null : qs('#invalid-empty-field').style.display = 'block'
+
+        if (!nameValid()) {
+          nameInput.classList.add('isInvalid')
+          qs('#invalid-name-field').style.display = 'block'
+        }
+        if (!emailValid()) {
+          emailInput.classList.add('isInvalid')
+          qs('#invalid-email-field').style.display = 'block'
+        }
+        if (!phoneValid()) {
+          phoneInput.classList.add('isInvalid')
+          qs('#invalid-phone-field').style.display = 'block'
+        }
       }
     })
   }
 
-  // The Modal Windows
-  if (config.modals.gifts.enabled) {
-    $('[data-modal="gifts-modal"]').click(function (evt) {
-      evt.preventDefault()
-      $('#gifts-modal').css({ display: 'flex' })
+  /* =========================
+     Modals
+  ========================= */
+  if (config.modals?.gifts?.enabled) {
+    qsa('[data-modal="gifts-modal"]').forEach(el => {
+      el.addEventListener('click', e => {
+        e.preventDefault()
+        qs('#gifts-modal').style.display = 'flex'
+      })
     })
   }
 
-  if (config.modals.closeEnabled) {
-    $('.close, .modal-container').click(function (evt) {
-      if (evt.target.className === 'close' || evt.target.className === 'modal-container') {
-        evt.preventDefault();
-        $('#gifts-modal, #confirmation-modal').css({ display: 'none' })
-      }
+  if (config.modals?.closeEnabled) {
+    qsa('.close, .modal-container').forEach(el => {
+      el.addEventListener('click', e => {
+        if (e.target.classList.contains('close') || e.target.classList.contains('modal-container')) {
+          e.preventDefault()
+          qs('#gifts-modal')?.style.setProperty('display', 'none')
+          qs('#confirmation-modal')?.style.setProperty('display', 'none')
+        }
+      })
     })
   }
 
-  // The Smooth Scroll
-  if (config.scroll.smoothEnabled) {
-    $('.scroll').click(function(evt) {
-      const scrollSpeed = config.scroll.speed
-      evt.preventDefault()
-      $('html, body').animate({ scrollTop: $(this.hash).offset().top }, scrollSpeed)
+  /* =========================
+     Smooth Scroll
+  ========================= */
+  if (config.scroll?.smoothEnabled) {
+    qsa('.scroll').forEach(el => {
+      el.addEventListener('click', e => {
+        e.preventDefault()
+        const target = qs(el.getAttribute('href'))
+        if (!target) return
+
+        window.scrollTo({
+          top: target.offsetTop,
+          behavior: 'smooth'
+        })
+      })
     })
   }
-});
+})
